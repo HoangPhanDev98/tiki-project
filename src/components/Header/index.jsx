@@ -86,9 +86,10 @@ function Header(props) {
                     display: "flex",
                     position: "relative",
                     boxShadow: "rgb(98 98 98 / 50%) 0px 1px 2px 0px",
-                    ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                      border: "none",
-                    },
+                    ".css-1d3z3hw-MuiOutlinedInput-notchedOutline, .css-igs3ac":
+                      {
+                        border: "none",
+                      },
                     ".css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
                       {
                         border: "none",
