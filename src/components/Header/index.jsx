@@ -5,17 +5,33 @@ import {
   DialogContent,
   DialogContentText,
   Link,
+  Menu,
+  MenuItem,
   TextField,
+  Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { useState } from "react";
-import Register from "../form-control/Register";
+import { useDispatch, useSelector } from "react-redux";
+import Login from "../../features/Auth/components/Login";
+import Register from "../../features/Auth/components/Register";
+import { logout } from "../../features/Auth/userSlice";
 import SearchForm from "../form-control/SearchForm";
 
 Header.propTypes = {};
 
+const MODE = {
+  LOGIN: "login",
+  REGISTER: "register",
+};
+
 function Header(props) {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState(MODE.LOGIN);
+  const loggedInUser = useSelector((state) => state.user.current);
+  const isLoggedIn = !!loggedInUser.id;
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -23,6 +39,20 @@ function Header(props) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleUserClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogoutClick = () => {
+    const action = logout();
+    dispatch(action);
+    setAnchorEl(null);
   };
 
   return (
@@ -70,6 +100,7 @@ function Header(props) {
                       display: "block",
                       "&>img": { width: "100%", height: "100%" },
                     }}
+                    href="/"
                   >
                     <img src="logo-tiki.png" alt="Tiki" />
                   </Link>
@@ -144,59 +175,67 @@ function Header(props) {
                 }}
               >
                 <img src="user-icon.png" alt="User Icon" />
-                <Box
-                  component="span"
-                  sx={{
-                    color: "white",
-                    fontWeight: "400",
-                    whiteSpace: "nowrap",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                  onClick={handleClickOpen}
-                >
+                {!isLoggedIn && (
                   <Box
-                    components="span"
+                    component="span"
                     sx={{
+                      color: "white",
+                      fontWeight: "400",
                       whiteSpace: "nowrap",
-                      textOverflow: "ellipsis",
-                      display: "inline-block",
-                      overflow: "hidden",
-                      textTransform: "capitalize",
-                      fontSize: "11px",
-                      lineHeight: "16px",
-                    }}
-                  >
-                    Đăng Nhập / Đăng Ký
-                  </Box>
-                  <Box
-                    components="span"
-                    sx={{
                       display: "flex",
-                      alignItems: "center",
-                      fontSize: "13px",
-                      lineHeight: "20px",
-                      minWidth: "120px",
+                      flexDirection: "column",
                     }}
+                    onClick={handleClickOpen}
                   >
                     <Box
-                      component="span"
+                      components="span"
                       sx={{
-                        maxWidth: "104px",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
+                        display: "inline-block",
                         overflow: "hidden",
+                        textTransform: "capitalize",
+                        fontSize: "11px",
+                        lineHeight: "16px",
                       }}
                     >
-                      Tài khoản
+                      Đăng Nhập / Đăng Ký
                     </Box>
                     <Box
-                      component="img"
-                      src="arrow-icon.png"
-                      sx={{ width: "16px", height: "16px" }}
-                    />
+                      components="span"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: "13px",
+                        lineHeight: "20px",
+                        minWidth: "120px",
+                      }}
+                    >
+                      <Box
+                        component="span"
+                        sx={{
+                          maxWidth: "104px",
+                          whiteSpace: "nowrap",
+                          textOverflow: "ellipsis",
+                          overflow: "hidden",
+                        }}
+                      >
+                        Tài khoản
+                      </Box>
+                      <Box
+                        component="img"
+                        src="arrow-icon.png"
+                        sx={{ width: "16px", height: "16px" }}
+                      />
+                    </Box>
                   </Box>
-                </Box>
+                )}
+
+                {isLoggedIn && (
+                  <Box onClick={handleUserClick}>
+                    <Typography variant="h7">Chào, Hoàng</Typography>
+                  </Box>
+                )}
               </Box>
 
               <Box sx={{ position: "relative" }}>
@@ -326,12 +365,51 @@ function Header(props) {
         </Box>
       </Box>
 
-      <Dialog open={open} onClose={handleClose}>
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseMenu}
+      >
+        <MenuItem onClick={handleCloseMenu}>Thông tin tài khoản</MenuItem>
+        <MenuItem onClick={handleLogoutClick}>Đăng xuất</MenuItem>
+      </Menu>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        sx={{
+          ".css-1t1j96h-MuiPaper-root-MuiDialog-paper": {
+            maxWidth: "800px",
+            "&>div": { padding: "0" },
+          },
+        }}
+      >
         <DialogContent>
-          <Register />
+          {mode === MODE.REGISTER && (
+            <>
+              <Register closeDialog={handleClose} />
+              <Box textAlign="center">
+                <Button color="primary" onClick={() => setMode(MODE.LOGIN)}>
+                  Bạn đã có tài khoản? Đăng nhập tại đây
+                </Button>
+              </Box>
+            </>
+          )}
+
+          {mode === MODE.LOGIN && (
+            <>
+              <Login closeDialog={handleClose} />
+              <Box textAlign="center">
+                <Button color="primary" onClick={() => setMode(MODE.REGISTER)}>
+                  Bạn chưa có tài khoản? Đăng ký tại đây
+                </Button>
+              </Box>
+            </>
+          )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          {/* <Button onClick={handleClose}>Cancel</Button> */}
         </DialogActions>
       </Dialog>
     </div>

@@ -137,5 +137,8 @@ table {
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif !important;
+}
 
+body {
+    background-color: #f5f5fa;
 }

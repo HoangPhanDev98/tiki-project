@@ -13,7 +13,7 @@ InputField.propTypes = {
 };
 
 function InputField(props) {
-  const { form, name, label, placeholder, disable } = props;
+  const { form, name, placeholder, disable } = props;
   const { control } = form;
   return (
     <Controller
@@ -24,12 +24,11 @@ function InputField(props) {
         fieldState: { invalid, error },
       }) => (
         <TextField
-          fullWidth
           margin="normal"
-          label={label}
+          fullWidth
           placeholder={placeholder}
           error={invalid}
-          //   helperText={error.message}
+          helperText={error?.message}
           onChange={onChange}
           onBlur={onBlur}
           name={name}
