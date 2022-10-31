@@ -5,22 +5,11 @@ import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 
-CategoryTabBar.propTypes = {};
+CategoryTabBar.propTypes = {
+  categoryList: PropTypes.array.isRequired,
+};
 
-function CategoryTabBar(props) {
-  const [categoryList, setCategoryList] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await categoryApi.getAll();
-        setCategoryList(data);
-      } catch (error) {
-        console.log("Failed to get category list: ", error);
-      }
-    })();
-  }, []);
-
+function CategoryTabBar({ categoryList }) {
   return (
     <Paper elevation={0}>
       <Box
