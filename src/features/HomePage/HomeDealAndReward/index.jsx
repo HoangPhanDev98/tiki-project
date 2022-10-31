@@ -27,7 +27,7 @@ function HomeDealAndRewards(props) {
         <Grid item xs={7}>
           <HomeDeal />
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={5} height="300px">
           <CarouselBanner imgList={imgList} />
         </Grid>
       </Grid>

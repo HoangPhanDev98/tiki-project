@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import categoryApi from "../../../api/categoryApi";
 import { Box } from "@mui/system";
@@ -19,7 +19,8 @@ function CategoryTabBar(props) {
         console.log("Failed to get category list: ", error);
       }
     })();
-  });
+  }, []);
+
   return (
     <Paper elevation={0}>
       <Box
