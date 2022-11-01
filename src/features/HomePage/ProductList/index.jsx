@@ -97,7 +97,11 @@ function ProductList({ categoryList }) {
               key={product.id}
               marginBottom="15px"
             >
-              <Box padding={1}>
+              <Box
+                padding={1}
+                sx={{ cursor: "pointer" }}
+                onClick={() => navigate(`/san-pham/${product.id}`)}
+              >
                 <img
                   width="100%"
                   src={
