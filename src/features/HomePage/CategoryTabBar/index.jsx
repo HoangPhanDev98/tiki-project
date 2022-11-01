@@ -28,7 +28,9 @@ function CategoryTabBar({ categoryList }) {
             key={category.id}
             sx={{ a: { textDecoration: "none", color: "#333" } }}
           >
-            <Link to="/">{category.name}</Link>
+            <Link to={`san-pham?&category.id=${category.id}`}>
+              {category.name}
+            </Link>
           </Box>
         ))}
       </Box>

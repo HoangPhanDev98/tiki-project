@@ -29,8 +29,6 @@ function ProductList({ categoryList }) {
       ...params,
       _page: Number.parseInt(params._page) || 1,
       _limit: Number.parseInt(params._limit) || 36,
-      _sort: params.sort || "salePrice:ASC",
-      isPromotion: params.isPromotion === "true",
     };
   }, [location.search]);
 
@@ -40,8 +38,6 @@ function ProductList({ categoryList }) {
         const { data, pagination } = await productApi.getAll(queryParams);
         setProductList(data);
         setPagination(pagination);
-        console.log({ data, pagination });
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
       }
@@ -133,23 +129,39 @@ function ProductList({ categoryList }) {
                       Đã bán 100
                     </Typography>
                   </Box>
-                  <Typography
-                    component="span"
-                    fontSize="16px"
-                    fontWeight="bold"
-                    sx={{ color: "red" }}
-                  >
-                    {formatPrice(product.salePrice)}
-                  </Typography>
                   {product.promotionPercent > 0 && (
-                    <Typography
-                      component="span"
-                      fontSize="12px"
-                      marginLeft="10px"
-                      sx={{ color: "red" }}
-                    >
-                      -{product.promotionPercent}%
-                    </Typography>
+                    <Box>
+                      <Typography
+                        component="span"
+                        fontSize="16px"
+                        fontWeight="bold"
+                        sx={{ color: "red" }}
+                      >
+                        {formatPrice(product.salePrice)}
+                      </Typography>
+
+                      <Typography
+                        component="span"
+                        fontSize="12px"
+                        marginLeft="10px"
+                        sx={{ color: "red" }}
+                      >
+                        -{product.promotionPercent}%
+                      </Typography>
+                    </Box>
+                  )}
+
+                  {product.promotionPercent < 1 && (
+                    <Box>
+                      <Typography
+                        component="span"
+                        fontSize="16px"
+                        fontWeight="bold"
+                        sx={{ color: "#333" }}
+                      >
+                        {formatPrice(product.salePrice)}
+                      </Typography>
+                    </Box>
                   )}
                 </Box>
               </Box>

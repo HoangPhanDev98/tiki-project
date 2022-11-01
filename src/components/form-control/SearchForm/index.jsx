@@ -39,7 +39,7 @@ function SearchForm(props) {
       <Button variant="contained">
         <Box
           component="img"
-          src="search-icon.png"
+          src="../../../search-icon.png"
           sx={{ width: "20px", height: "20px" }}
         ></Box>
         Tìm kiếm

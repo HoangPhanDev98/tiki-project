@@ -17,6 +17,7 @@ import Login from "../../features/Auth/components/Login";
 import Register from "../../features/Auth/components/Register";
 import { logout } from "../../features/Auth/userSlice";
 import SearchForm from "../form-control/SearchForm";
+import { cartItemsCountSelector } from "../../features/Cart/selectors";
 
 Header.propTypes = {};
 
@@ -32,6 +33,7 @@ function Header(props) {
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id;
   const [anchorEl, setAnchorEl] = useState(null);
+  const cartItemsCount = useSelector(cartItemsCountSelector);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -102,7 +104,7 @@ function Header(props) {
                     }}
                     href="/"
                   >
-                    <img src="logo-tiki.png" alt="Tiki" />
+                    <img src="../../public/logo-tiki.png" alt="Tiki" />
                   </Link>
                 </Box>
               </Box>
@@ -174,7 +176,7 @@ function Header(props) {
                   },
                 }}
               >
-                <img src="user-icon.png" alt="User Icon" />
+                <img src="../../public/user-icon.png" alt="User Icon" />
                 {!isLoggedIn && (
                   <Box
                     component="span"
@@ -224,7 +226,7 @@ function Header(props) {
                       </Box>
                       <Box
                         component="img"
-                        src="arrow-icon.png"
+                        src="../../public/arrow-icon.png"
                         sx={{ width: "16px", height: "16px" }}
                       />
                     </Box>
@@ -258,7 +260,7 @@ function Header(props) {
                     >
                       <Box
                         component="img"
-                        src="cart-icon.png"
+                        src="../../public/cart-icon.png"
                         sx={{ width: "32px", height: "32px" }}
                       />
                       <Box
@@ -279,7 +281,7 @@ function Header(props) {
                           padding: "0 7px",
                         }}
                       >
-                        0
+                        {cartItemsCount}
                       </Box>
                     </Box>
                     <Box
@@ -309,7 +311,7 @@ function Header(props) {
             <Box component="a" sx={{ position: "absolute" }}>
               <Box
                 component="img"
-                src="astra-rewards.png"
+                src="../../public/astra-rewards.png"
                 alt="astra-rewards"
                 height="18px"
                 width="129px"
