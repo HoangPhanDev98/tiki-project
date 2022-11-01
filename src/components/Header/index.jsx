@@ -104,7 +104,7 @@ function Header(props) {
                     }}
                     href="/"
                   >
-                    <img src="../../public/logo-tiki.png" alt="Tiki" />
+                    <img src="/public/logo-tiki.png" alt="Tiki" />
                   </Link>
                 </Box>
               </Box>
@@ -176,7 +176,7 @@ function Header(props) {
                   },
                 }}
               >
-                <img src="../../public/user-icon.png" alt="User Icon" />
+                <img src="/public/user-icon.png" alt="User Icon" />
                 {!isLoggedIn && (
                   <Box
                     component="span"
@@ -226,7 +226,7 @@ function Header(props) {
                       </Box>
                       <Box
                         component="img"
-                        src="../../public/arrow-icon.png"
+                        src="/public/arrow-icon.png"
                         sx={{ width: "16px", height: "16px" }}
                       />
                     </Box>
@@ -260,7 +260,7 @@ function Header(props) {
                     >
                       <Box
                         component="img"
-                        src="../../public/cart-icon.png"
+                        src="/public/cart-icon.png"
                         sx={{ width: "32px", height: "32px" }}
                       />
                       <Box
@@ -311,7 +311,7 @@ function Header(props) {
             <Box component="a" sx={{ position: "absolute" }}>
               <Box
                 component="img"
-                src="../../public/astra-rewards.png"
+                src="/public/astra-rewards.png"
                 alt="astra-rewards"
                 height="18px"
                 width="129px"
