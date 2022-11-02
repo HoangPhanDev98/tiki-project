@@ -21,8 +21,10 @@ const cartSlice = createSlice({
 
       if (index >= 0) {
         state.cartItems[index].quantity += newItem.quantity;
+        console.log("no ok");
       } else {
         state.cartItems.push(newItem);
+        console.log("ok");
       }
     },
 

@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomeFeature from "./features/HomePage";
 import ProductFeature from "./features/Product";
+import CartFeature from "./features/Cart";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="" element={<HomeFeature />} />
         <Route path="san-pham/*" element={<ProductFeature />} />
+        <Route path="gio-hang" element={<CartFeature />} />
       </Routes>
       <Footer />
     </div>

@@ -1,13 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
-import ProductThumbnail from "../components/ProductThumbnail";
+import DOMPurify from "dompurify";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import useProductDetail from "../../../hooks/useProductDetails";
-import ProductInfo from "../components/ProductInfo";
-import { useDispatch } from "react-redux";
 import { addToCart } from "../../Cart/cartSlice";
+import ProductInfo from "../components/ProductInfo";
+import ProductReviews from "../components/ProductReviews";
+import ProductThumbnail from "../components/ProductThumbnail";
 
 DetailPage.propTypes = {};
 
@@ -25,6 +26,8 @@ function DetailPage(props) {
     dispatch(action);
   };
 
+  const safeDescription = DOMPurify.sanitize(product.description);
+
   return (
     <Box sx={{ width: "1270px", margin: "0 auto" }}>
       <Grid container sx={{ display: "flex", alignItems: "stretch" }}>
@@ -35,6 +38,16 @@ function DetailPage(props) {
           <ProductInfo onSubmit={handleAddToCartSubmit} product={product} />
         </Grid>
       </Grid>
+
+      <Box marginTop="20px">
+        <Paper sx={{ padding: "20px" }}>
+          <div dangerouslySetInnerHTML={{ __html: safeDescription }}></div>
+        </Paper>
+      </Box>
+
+      <Box marginTop="20px">
+        <ProductReviews />
+      </Box>
     </Box>
   );
 }

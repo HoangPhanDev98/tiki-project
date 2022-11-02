@@ -3,21 +3,20 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   Link,
   Menu,
   MenuItem,
-  TextField,
   Typography,
 } from "@mui/material";
-import { Box, Container } from "@mui/system";
+import { Box } from "@mui/system";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Login from "../../features/Auth/components/Login";
 import Register from "../../features/Auth/components/Register";
 import { logout } from "../../features/Auth/userSlice";
-import SearchForm from "../form-control/SearchForm";
 import { cartItemsCountSelector } from "../../features/Cart/selectors";
+import SearchForm from "../form-control/SearchForm";
 
 Header.propTypes = {};
 
@@ -28,6 +27,7 @@ const MODE = {
 
 function Header(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState(MODE.LOGIN);
   const loggedInUser = useSelector((state) => state.user.current);
@@ -55,6 +55,10 @@ function Header(props) {
     const action = logout();
     dispatch(action);
     setAnchorEl(null);
+  };
+
+  const handleCartClick = () => {
+    navigate("/gio-hang");
   };
 
   return (
@@ -240,7 +244,7 @@ function Header(props) {
                 )}
               </Box>
 
-              <Box sx={{ position: "relative" }}>
+              <Box sx={{ position: "relative" }} onClick={handleCartClick}>
                 <Link>
                   <Box
                     sx={{
