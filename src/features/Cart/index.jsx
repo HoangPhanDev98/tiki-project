@@ -6,12 +6,14 @@ import { Box } from "@mui/system";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import { DeleteOutline } from "@mui/icons-material";
 import { formatPrice } from "../../utils";
+import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from "../../constants/index";
 
 CartFeature.propTypes = {};
 
 function CartFeature(props) {
   const cartItemTotal = useSelector(cartItemsCountSelector);
   const cartTotal = useSelector(cartTotalSelector);
+  const productDetail = useSelector((state) => state.cart.cartItems);
 
   return (
     <Box sx={{ width: "1270px", margin: "0 auto" }}>
@@ -23,7 +25,10 @@ function CartFeature(props) {
 
       <Grid container>
         <Grid item xs={8}>
-          <Paper elevation={0} sx={{ padding: "9px 16px" }}>
+          <Paper
+            elevation={0}
+            sx={{ padding: "9px 16px", marginBottom: "10px" }}
+          >
             <Grid container sx={{ alignItems: "center" }}>
               <Grid item xs={5} fontSize="14px">
                 {cartItemTotal} sản phẩm
@@ -37,13 +42,55 @@ function CartFeature(props) {
               <Grid item xs={1} fontSize="13px">
                 Thành tiền
               </Grid>
-              <Grid item xs={1} fontSize="13px" textAlign="right">
-                <DeleteOutline />
-              </Grid>
+              <Grid item xs={1} fontSize="13px" textAlign="right"></Grid>
             </Grid>
           </Paper>
 
-          <Paper></Paper>
+          {productDetail.map((product) => (
+            <Paper key={product.id} elevation={0} sx={{ padding: "9px 16px" }}>
+              {console.log(product)}
+              <Grid container sx={{ alignItems: "center" }}>
+                <Grid item xs={5} display="flex" alignItems="center">
+                  <img
+                    width="77.63px"
+                    height="80px"
+                    src={
+                      product.thumbnail
+                        ? `${STATIC_HOST}${product.thumbnail?.url}`
+                        : THUMBNAIL_PLACEHOLDER
+                    }
+                  />
+                  <Typography paddingLeft="10px" fontSize="14px">
+                    {product.product.name}
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  xs={3}
+                  fontSize="13px"
+                  fontWeight="bold"
+                  color="#242424"
+                >
+                  {formatPrice(product.product.salePrice)}
+                </Grid>
+                <Grid item xs={2} fontSize="13px">
+                  {product.quantity}
+                </Grid>
+                <Grid
+                  item
+                  xs={1}
+                  fontSize="13px"
+                  fontWeight="bold"
+                  color="#ff424e"
+                >
+                  {formatPrice(product.product.salePrice * product.quantity)}
+                </Grid>
+                <Grid item xs={1} fontSize="13px" textAlign="right">
+                  <DeleteOutline />
+                </Grid>
+              </Grid>
+            </Paper>
+          ))}
         </Grid>
         <Grid item xs={4} sx={{ paddingLeft: "20px" }}>
           <Paper sx={{ padding: "16px" }}>
@@ -125,7 +172,7 @@ function CartFeature(props) {
                   Tổng tiền
                 </Typography>
                 <Typography fontSize="20px" color="#fe3834" fontWeight="400">
-                  {formatPrice(0)}
+                  {formatPrice(cartTotal)}
                 </Typography>
               </Box>
               <Typography textAlign="right" fontSize="12px" color="#333333">
@@ -143,7 +190,7 @@ function CartFeature(props) {
               "&:hover": { backgroundColor: "#d43e47" },
             }}
           >
-            Mua Hàng ({cartTotal})
+            Mua Hàng ({cartItemTotal})
           </Button>
         </Grid>
       </Grid>

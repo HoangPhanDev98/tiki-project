@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Paper, Typography } from "@mui/material";
+import { Paper, Skeleton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import React, { useEffect, useState } from "react";
 import productApi from "../../../../api/productApi";
-import { formatPrice } from "../../../../utils/index";
 import {
   STATIC_HOST,
   THUMBNAIL_PLACEHOLDER,
 } from "../../../../constants/index";
+import { formatPrice } from "../../../../utils/index";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import "./styles.css";
+import { useNavigate } from "react-router-dom";
+
+// import required modules
 
 HomeDeal.propTypes = {};
 
 function HomeDeal(props) {
+  const navigate = useNavigate();
   const [productsSale, setProductsSale] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -26,8 +39,13 @@ function HomeDeal(props) {
       } catch (error) {
         console.log("Failed to get product: ", error);
       }
+      setLoading(false);
     })();
   }, []);
+
+  const handleProductSaleClick = (productId) => {
+    navigate(`/san-pham/${productId}`);
+  };
   return (
     <Paper elevation={0}>
       <Box
@@ -57,69 +75,102 @@ function HomeDeal(props) {
           <Box component="span">00</Box>
         </Box>
       </Box>
-
-      <Box sx={{ display: "flex", marginTop: "10px" }}>
-        {productsSale.map((product) => (
-          <Box sx={{ padding: "6px" }} key={product.id}>
-            <Box
-              component="img"
-              width="100%"
-              src={
-                product.thumbnail
-                  ? `${STATIC_HOST}${product.thumbnail?.url}`
-                  : THUMBNAIL_PLACEHOLDER
-              }
-            />
-            <Box
-              sx={{
-                display: "flex",
-                color: "red",
-                alignItems: "flex-end",
-                marginTop: "20px",
-              }}
-            >
-              <Typography sx={{ fontSize: "16px", fontWeight: "bold" }}>
-                {formatPrice(product.salePrice)}
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "13px",
-                  paddingLeft: "7px",
-                  fontWeight: "bold",
-                }}
-              >
-                -{product.promotionPercent}%
-              </Typography>
-            </Box>
-            <Box
-              component="span"
-              sx={{
-                display: "block",
-                fontSize: "11px",
-                textAlign: "center",
-                background: "rgb(255, 170, 175)",
-                padding: "3px 0",
-                borderRadius: "20px",
-                color: "white",
-                position: "relative",
-                marginY: "11px",
-                "&::before": {
-                  content: '""',
-                  width: "17px",
-                  height: "17px",
-                  position: "absolute",
-                  background: "red",
-                  top: "0",
-                  left: "0",
-                  borderRadius: "50%",
-                },
-              }}
-            >
-              Vừa mở bán
-            </Box>
-          </Box>
-        ))}
-      </Box>
+      {loading ? (
+        <Skeleton variant="rectangular" width={740} height={320} />
+      ) : (
+        <Box sx={{ display: "flex", marginTop: "10px" }}>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            breakpoints={{
+              "@0.00": {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              "@0.75": {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              "@1.00": {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              "@1.50": {
+                slidesPerView: 4,
+                spaceBetween: 50,
+              },
+            }}
+            className="mySwiper"
+          >
+            {productsSale.map((product) => (
+              <SwiperSlide key={product.id}>
+                <Box
+                  sx={{ padding: "6px", cursor: "pointer" }}
+                  key={product.id}
+                  onClick={() => handleProductSaleClick(product.id)}
+                >
+                  <Box
+                    component="img"
+                    width="100%"
+                    src={
+                      product.thumbnail
+                        ? `${STATIC_HOST}${product.thumbnail?.url}`
+                        : THUMBNAIL_PLACEHOLDER
+                    }
+                  />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      color: "red",
+                      alignItems: "flex-end",
+                      marginTop: "20px",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "16px", fontWeight: "bold" }}>
+                      {formatPrice(product.salePrice)}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "13px",
+                        paddingLeft: "7px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      -{product.promotionPercent}%
+                    </Typography>
+                  </Box>
+                  <Box
+                    component="span"
+                    sx={{
+                      display: "block",
+                      fontSize: "11px",
+                      textAlign: "center",
+                      background: "rgb(255, 170, 175)",
+                      padding: "3px 0",
+                      borderRadius: "20px",
+                      color: "white",
+                      position: "relative",
+                      marginY: "11px",
+                      "&::before": {
+                        content: '""',
+                        width: "17px",
+                        height: "17px",
+                        position: "absolute",
+                        background: "red",
+                        top: "0",
+                        left: "0",
+                        borderRadius: "50%",
+                      },
+                    }}
+                  >
+                    Vừa mở bán
+                  </Box>
+                </Box>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Box>
+      )}
     </Paper>
   );
 }

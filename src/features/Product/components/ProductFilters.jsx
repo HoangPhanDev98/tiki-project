@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import FilterByCategory from "./Filters/FilterByCategory";
 import FilterByService from "./Filters/FilterByService";
 import FilterByPrice from "./Filters/FilterByPrice";
@@ -8,9 +8,10 @@ import FilterByPrice from "./Filters/FilterByPrice";
 ProductFilters.propTypes = {
   filters: PropTypes.object,
   onChange: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
-function ProductFilters({ filters = {}, onChange = null }) {
+function ProductFilters({ filters = {}, onChange = null, loading = true }) {
   const handleCategoryChange = (newCategoryId) => {
     if (!onChange) return;
 

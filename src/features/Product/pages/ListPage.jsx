@@ -15,6 +15,7 @@ ListPage.propTypes = {};
 function ListPage(props) {
   const navigate = useNavigate();
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
@@ -45,6 +46,7 @@ function ListPage(props) {
       } catch (error) {
         console.log("Failed to get product list: ", error);
       }
+      setLoading(false);
     })();
   }, [queryParams]);
 
@@ -112,7 +114,7 @@ function ListPage(props) {
 
           <FilterViewer filters={queryParams} onChange={setNewFilters} />
 
-          <ProductList productList={productList} />
+          <ProductList loading={loading} productList={productList} />
 
           <Box
             marginTop={3}

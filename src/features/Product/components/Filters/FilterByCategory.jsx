@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import categoryApi from "../../../../api/categoryApi";
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 
 FilterByCategory.propTypes = {
   onChange: PropTypes.func,
@@ -10,6 +10,7 @@ FilterByCategory.propTypes = {
 
 function FilterByCategory({ onChange = null }) {
   const [categoryList, setCategoryList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -19,6 +20,7 @@ function FilterByCategory({ onChange = null }) {
       } catch (error) {
         console.log("Failter to fetch category list: ", error);
       }
+      setLoading(false);
     })();
   }, []);
 
@@ -32,20 +34,26 @@ function FilterByCategory({ onChange = null }) {
       <Typography fontSize="14px" fontWeight="bold" sx={{ padding: "12px 0" }}>
         Danh Mục Sản Phẩm
       </Typography>
-      {categoryList.map((category) => (
-        <Box
-          key={category.id}
-          onClick={() => handleCategoryClick(category)}
-          sx={{ cursor: "pointer" }}
-        >
-          <Typography
-            fontSize="12px"
-            sx={{ color: "#38383d", paddingBottom: "12px" }}
-          >
-            {category.name}
-          </Typography>
+      {loading ? (
+        <Skeleton variant="rectangular" width={200} height={230} />
+      ) : (
+        <Box>
+          {categoryList.map((category) => (
+            <Box
+              key={category.id}
+              onClick={() => handleCategoryClick(category)}
+              sx={{ cursor: "pointer" }}
+            >
+              <Typography
+                fontSize="12px"
+                sx={{ color: "#38383d", paddingBottom: "12px" }}
+              >
+                {category.name}
+              </Typography>
+            </Box>
+          ))}
         </Box>
-      ))}
+      )}
     </Box>
   );
 }

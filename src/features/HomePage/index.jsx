@@ -1,4 +1,4 @@
-import { Paper } from "@mui/material";
+import { CircularProgress, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import categoryApi from "../../api/categoryApi";
@@ -12,6 +12,7 @@ HomeFeature.propTypes = {};
 
 function HomeFeature(props) {
   const [categoryList, setCategoryList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -21,12 +22,13 @@ function HomeFeature(props) {
       } catch (error) {
         console.log("Failed to get category list: ", error);
       }
+      setLoading(false);
     })();
   }, []);
 
   return (
     <Box>
-      <CategoryTabBar categoryList={categoryList} />
+      <CategoryTabBar loading={loading} categoryList={categoryList} />
 
       <HomeBannerTop />
 
