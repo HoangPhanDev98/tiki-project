@@ -38,6 +38,9 @@ function Header(props) {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const cartItemsCount = useSelector(cartItemsCountSelector);
+  const handleOpenRegister = () => {
+    setOpen(true);
+  };
 
   const handleOpenNavMenu = (e) => {
     setAnchorElNav(e.currentTarget);
@@ -172,7 +175,6 @@ function Header(props) {
                   sx={{
                     width: "100%",
                     position: "relative",
-                    // boxShadow: "rgb(98 98 98 / 50%) 0px 1px 2px 0px",
                     ".css-1d3z3hw-MuiOutlinedInput-notchedOutline, .css-igs3ac":
                       {
                         border: "none",
@@ -259,7 +261,7 @@ function Header(props) {
                       display: "flex",
                       flexDirection: "column",
                     }}
-                    onClick={handleOpenUserMenu}
+                    onClick={handleOpenRegister}
                   >
                     <Box
                       components="span"
@@ -309,7 +311,7 @@ function Header(props) {
                 )}
 
                 {isLoggedIn && (
-                  <Box onClick={handleUserClick}>
+                  <Box onClick={handleOpenUserMenu}>
                     <Typography variant="h7">Chào, Hoàng</Typography>
                   </Box>
                 )}
@@ -485,8 +487,8 @@ function Header(props) {
           display: { xs: "block", md: "none", zIndex: "999999" },
         }}
       >
-        <MenuItem onClick={handleCloseNavMenu}>Tìm kiếm</MenuItem>
-        <MenuItem onClick={handleCloseNavMenu}>Đăng Nhập / Đăng Ký</MenuItem>
+        <MenuItem>Tìm kiếm</MenuItem>
+        <MenuItem>Đăng Nhập / Đăng Ký</MenuItem>
       </Menu>
 
       <Menu
