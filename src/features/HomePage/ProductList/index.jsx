@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import productApi from "../../../api/productApi";
 import {
+  Container,
   Grid,
   Pagination,
   Paper,
@@ -70,9 +71,16 @@ function ProductList({ categoryList }) {
   };
 
   return (
-    <Box sx={{ width: "1270px", margin: "0 auto" }}>
+    <Container sx={{ padding: { xs: "0", md: "16px" } }}>
       <Paper elevation={0}>
-        <Typography variant="h5" padding={2} marginBottom={1}>
+        <Typography
+          variant="h5"
+          marginBottom={1}
+          sx={{
+            padding: { xs: "10px", md: "16px" },
+            fontSize: { xs: "16px", md: "24px" },
+          }}
+        >
           Gợi Ý Hôm Nay
         </Typography>
       </Paper>
@@ -83,10 +91,10 @@ function ProductList({ categoryList }) {
           sx={{
             display: "flex",
             marginBottom: "8px",
-            alignItems: "center",
+            alignItems: "stretch",
             marginLeft: "-5px",
             "&>div": {
-              padding: "15px 20px",
+              padding: { xs: "5px 5px", md: "15px 20px" },
               width: "calc((100% / 6) - 5px )",
               marginLeft: "5px",
               textAlign: "center",
@@ -106,7 +114,9 @@ function ProductList({ categoryList }) {
                 "&:hover": { backgroundColor: "#1a94ff", color: "white" },
               }}
             >
-              <Typography>{category.name}</Typography>
+              <Typography sx={{ fontSize: { xs: "12px", md: "16px" } }}>
+                {category.name}
+              </Typography>
             </Box>
           ))}
         </Box>
@@ -135,7 +145,7 @@ function ProductList({ categoryList }) {
               {productList.map((product) => (
                 <Grid
                   item
-                  xs={12}
+                  xs={6}
                   sm={4}
                   md={3}
                   lg={2}
@@ -240,7 +250,7 @@ function ProductList({ categoryList }) {
           </Box>
         )}
       </Paper>
-    </Box>
+    </Container>
   );
 }
 

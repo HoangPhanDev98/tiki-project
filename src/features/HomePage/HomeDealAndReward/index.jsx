@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React from "react";
 import HomeDeal from "./HomeDeal";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -34,18 +34,18 @@ function HomeDealAndRewards(props) {
     },
   ];
   return (
-    <Box sx={{ width: "1270px", margin: "0 auto" }}>
-      <Grid container>
-        <Grid item xs={7}>
+    <Container
+      sx={{
+        padding: { xs: "0", md: "16px" },
+        marginTop: { xs: "2px", md: "0" },
+      }}
+    >
+      <Grid container sx={{ display: "flex", alignItems: "stretch" }}>
+        <Grid item xs={12} md={7} sx={{ background: "white" }}>
           <HomeDeal />
         </Grid>
-        <Grid item xs={5} height="300px">
-          <Swiper
-            navigation={true}
-            pagination={true}
-            modules={[Pagination, Navigation]}
-            color="white"
-          >
+        <Grid item xs={12} md={5}>
+          <Swiper navigation={true} modules={[Navigation]} color="white">
             {imgList.map((img) => (
               <SwiperSlide key={img.id}>
                 <img src={img.imgUrl} />
@@ -54,7 +54,7 @@ function HomeDealAndRewards(props) {
           </Swiper>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 }
 

@@ -24,10 +24,18 @@ function ProductThumbnail({ product }) {
   };
 
   return (
-    <Paper elevation={0} sx={{ padding: "16px" }}>
-      <Box sx={{ position: "relative" }}>
+    <Paper
+      elevation={0}
+      sx={{ padding: { xs: "22px 0 0 0", md: "16px" }, height: "100%" }}
+    >
+      <Box
+        sx={{
+          position: "relative",
+          "&>div": { padding: { xs: "0 20px 20px 20px", md: "0" } },
+        }}
+      >
         <ReactImageMagnify
-          style={{ zIndex: "9999" }}
+          style={{ zIndex: "99" }}
           {...{
             smallImage: {
               alt: `${product.name}`,

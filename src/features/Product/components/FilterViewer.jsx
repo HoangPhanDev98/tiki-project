@@ -88,11 +88,12 @@ function FilterViewer({ filters = {}, onChange = null }) {
           {
             display: "flex",
             flexFlow: "row wrap",
+            justifyContent: { xs: "center", md: "flex-start" },
             listStyleType: "none",
             padding: "12px 0 12px 8px",
             borderBottom: "1px solid #cfcfcf",
             "& > li": {
-              padding: 0,
+              padding: { xs: "10px 0 0 0", md: "0" },
               margin: "0 8px",
             },
           },

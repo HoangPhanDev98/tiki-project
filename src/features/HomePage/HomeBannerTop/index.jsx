@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,24 +44,31 @@ function HomeBannerTop(props) {
   ];
 
   return (
-    <Box sx={{ width: "1270px", margin: "0 auto" }}>
-      <Grid container>
-        <Grid item xs={8} sx={{ height: "285px" }}>
+    <Container sx={{ padding: { xs: "0", md: "16px" } }}>
+      <Grid container sx={{ paddingTop: { xs: "58px", md: "0" } }}>
+        <Grid item xs={12} md={8}>
           <Swiper
             navigation={true}
             pagination={true}
             modules={[Pagination, Navigation]}
-            color="white"
           >
             {imgList.map((img) => (
               <SwiperSlide key={img.id}>
-                <img src={img.imgUrl} />
+                <img src={img.imgUrl} className="swiper-lazy" />
               </SwiperSlide>
             ))}
           </Swiper>
         </Grid>
-        <Grid item xs={4} sx={{ width: "calc(100% - 10px)" }}>
-          <Box component="a" href="/" sx={{ height: "285px" }}>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          sx={{
+            width: "calc(100% - 10px)",
+            marginTop: { xs: "5px", md: "0" },
+          }}
+        >
+          <Box component="a" href="/">
             <Box
               component="img"
               width="100%"
@@ -71,7 +78,7 @@ function HomeBannerTop(props) {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 }
 

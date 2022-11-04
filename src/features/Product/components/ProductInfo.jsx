@@ -40,10 +40,10 @@ function ProductInfo({ product = {}, onSubmit = null }) {
       sx={{
         borderLeft: "1px solid #f2f2f2",
         height: "100%",
-        paddingRight: "24px",
+        paddingRight: { xs: "0", md: "24px" },
       }}
     >
-      <Box sx={{ padding: "16px 28px 16px 16px" }}>
+      <Box sx={{ padding: { xs: "16px", md: "16px 28px 16px 16px" } }}>
         <Typography
           fontSize="13px"
           sx={{ span: { color: "#0d5cb6", cursor: "pointer" } }}
@@ -52,10 +52,13 @@ function ProductInfo({ product = {}, onSubmit = null }) {
           <span> HPV</span>
         </Typography>
         <Typography
-          fontSize="24px"
+          sx={{
+            fontSize: { xs: "20px", md: "24px" },
+            marginBottom: "4px",
+            textTransform: "capitalize",
+          }}
           lineHeight="32px"
           fontWeight="300"
-          sx={{ marginBottom: "4px", textTransform: "capitalize" }}
         >
           {product.name} - Hàng Chính Hãng HPV
         </Typography>
@@ -64,7 +67,8 @@ function ProductInfo({ product = {}, onSubmit = null }) {
             display: "flex",
             alignItems: "center",
             marginTop: "4px",
-            fontSize: "15px",
+            fontSize: { xs: "12px", md: "15px" },
+
             color: "#787878",
           }}
         >
@@ -78,13 +82,24 @@ function ProductInfo({ product = {}, onSubmit = null }) {
           <Box component="span">Đã bán 2174</Box>
         </Box>
       </Box>
-      <Box sx={{ padding: "16px 0 24px 16px" }}>
-        <Grid container>
-          <Grid item lg={8} paddingX="12px">
+      <Box sx={{ padding: { xs: "0", md: "16px 0 24px 16px" } }}>
+        <Grid container sx={{ padding: { xs: "10px", md: "0" } }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            lg={8}
+            sx={{ paddingLeft: { xs: "0", md: "12px" } }}
+          >
             <Box padding="16px 12px" sx={{ backgroundColor: "#fafafa" }}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                }}
+              >
                 <Typography
-                  fontSize="32px"
+                  sx={{ fontSize: { xs: "24px", md: "24px", lg: "32px" } }}
                   paddingRight="8px"
                   color="#ff424e"
                   lineHeight="40px"
@@ -120,7 +135,7 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                   <Typography
                     display="inline-block"
                     marginLeft="4px"
-                    fontSize="14px"
+                    sx={{ fontSize: { xs: "12px", md: "12px", lg: "14px" } }}
                   >
                     Thưởng 23,20 ASA (~ {formatPrice(7238)})
                   </Typography>
@@ -139,7 +154,17 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                 <Box
                   display="flex"
                   sx={{
-                    justifyContent: "space-between",
+                    flexDirection: {
+                      xs: "row",
+                      sm: "row",
+                      md: "column",
+                      lg: "row",
+                    },
+                    justifyContent: {
+                      xs: "space-around",
+                      md: "space-between",
+                      lg: "space-around",
+                    },
                   }}
                 >
                   <Button
@@ -148,8 +173,9 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                     size="large"
                     sx={{
                       paddingY: "0",
-                      minWidth: "250px",
-                      maxWidth: "300px",
+                      minWidth: { xs: "100px", md: "150px", lg: "200px" },
+                      maxWidth: { xs: "200px", md: "200px", lg: "300px" },
+                      minHeight: { md: "44.75px" },
                       backgroundColor: "#ff3945",
                       "&:hover": {
                         backgroundColor: "#d43e47",
@@ -164,8 +190,10 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                     size="large"
                     sx={{
                       paddingY: "0",
-                      minWidth: "250px",
-                      maxWidth: "300px",
+                      marginTop: { xs: "0", md: "10px", lg: "0" },
+                      marginLeft: { xs: "5px", md: "0" },
+                      minWidth: { xs: "100px", md: "150px", lg: "200px" },
+                      maxWidth: { xs: "200px", md: "200px", lg: "300px" },
                       display: "flex",
                       flexDirection: "column",
                       fontSize: "15px",
@@ -181,7 +209,13 @@ function ProductInfo({ product = {}, onSubmit = null }) {
               </form>
             </Box>
           </Grid>
-          <Grid item lg={4}>
+          <Grid
+            item
+            xs={12}
+            sm="6"
+            lg={4}
+            sx={{ marginTop: { xs: "20px", sm: "0", md: "0" } }}
+          >
             <Box
               borderRadius="4px"
               boxShadow="rgb(242 242 242) 1px 1px 0px 0px inset, rgb(242 242 242) -1px -1px 0px 0px inset"

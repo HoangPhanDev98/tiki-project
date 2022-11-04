@@ -9,19 +9,45 @@ ProductReviews.propTypes = {};
 function ProductReviews(props) {
   return (
     <Paper elevation={0}>
-      <Typography fontSize="20px" padding="8px 16px" fontWeight="400">
+      <Typography
+        sx={{
+          fontSize: { xs: "14px", md: "20px" },
+          textAlign: { xs: "center", md: "left" },
+        }}
+        padding="8px 16px"
+        fontWeight="400"
+      >
         Đánh Giá - Nhận Xét Từ Khách Hàng
       </Typography>
-      <Box padding="0 48px">
+      <Box sx={{ padding: { xs: "0 60px", md: "0 48px" } }}>
         <Grid container>
-          <Grid item xs={4}>
-            <Box display="flex" alignItems="center">
-              <Typography fontSize="32px" fontWeight="700" paddingRight="16px">
+          <Grid item xs={12} md={4}>
+            <Box
+              display="flex"
+              alignItems="center"
+              sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { xs: "20px", md: "32px" },
+                  paddingRight: { xs: "8px", md: "16px" },
+                }}
+                fontWeight="700"
+              >
                 4.9
               </Typography>
               <Box>
-                <Rating value={5} size="medium" readOnly />
-                <Typography fontSize="13px" color="#808089">
+                <Rating
+                  value={5}
+                  sx={{ fontSize: { xs: "14px", md: "24px" } }}
+                  readOnly
+                />
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "13px" },
+                  }}
+                  color="#808089"
+                >
                   692 Nhận xét
                 </Typography>
               </Box>
@@ -38,6 +64,7 @@ function ProductReviews(props) {
                     backgroundColor: "#f5f5fa",
                     borderRadius: "5px",
                     position: "relative",
+                    justifyContent: { xs: "center" },
                     "&::before": {
                       content: "''",
                       height: "inherit",
@@ -49,9 +76,20 @@ function ProductReviews(props) {
                   },
                 }}
               >
-                <Rating value={5} size="small" readOnly />
+                <Rating
+                  value={5}
+                  sx={{
+                    fontSize: { xs: "14px", md: "20px" },
+                  }}
+                  readOnly
+                />
                 <Box id="progress-bar"></Box>
-                <Typography fontSize="11px" color="#808089">
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "11px" },
+                  }}
+                  color="#808089"
+                >
                   497
                 </Typography>
               </Box>
@@ -77,9 +115,20 @@ function ProductReviews(props) {
                   },
                 }}
               >
-                <Rating value={4} size="small" readOnly />
+                <Rating
+                  value={4}
+                  sx={{
+                    fontSize: { xs: "14px", md: "20px" },
+                  }}
+                  readOnly
+                />
                 <Box id="progress-bar"></Box>
-                <Typography fontSize="11px" color="#808089">
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "11px" },
+                  }}
+                  color="#808089"
+                >
                   127
                 </Typography>
               </Box>
@@ -105,9 +154,20 @@ function ProductReviews(props) {
                   },
                 }}
               >
-                <Rating value={3} size="small" readOnly />
+                <Rating
+                  value={3}
+                  sx={{
+                    fontSize: { xs: "14px", md: "20px" },
+                  }}
+                  readOnly
+                />
                 <Box id="progress-bar"></Box>
-                <Typography fontSize="11px" color="#808089">
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "11px" },
+                  }}
+                  color="#808089"
+                >
                   23
                 </Typography>
               </Box>
@@ -133,9 +193,20 @@ function ProductReviews(props) {
                   },
                 }}
               >
-                <Rating value={2} size="small" readOnly />
+                <Rating
+                  value={2}
+                  sx={{
+                    fontSize: { xs: "14px", md: "20px" },
+                  }}
+                  readOnly
+                />
                 <Box id="progress-bar"></Box>
-                <Typography fontSize="11px" color="#808089">
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "11px" },
+                  }}
+                  color="#808089"
+                >
                   0
                 </Typography>
               </Box>
@@ -161,15 +232,33 @@ function ProductReviews(props) {
                   },
                 }}
               >
-                <Rating value={1} size="small" readOnly />
+                <Rating
+                  value={1}
+                  sx={{
+                    fontSize: { xs: "14px", md: "20px" },
+                  }}
+                  readOnly
+                />
                 <Box id="progress-bar"></Box>
-                <Typography fontSize="11px" color="#808089">
+                <Typography
+                  sx={{
+                    fontSize: { xs: "10px", md: "11px" },
+                  }}
+                  color="#808089"
+                >
                   0
                 </Typography>
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={8}>
+          <Grid
+            item
+            md={8}
+            sx={{
+              display: { xs: "none", md: "block" },
+              paddingLeft: { md: "20px" },
+            }}
+          >
             <Box display="flex">
               <Box>
                 <Typography>Đánh giá của khách đã mua hàng</Typography>
@@ -180,7 +269,10 @@ function ProductReviews(props) {
         </Grid>
       </Box>
 
-      <Box padding="20px 48px" borderTop="1px solid rgb(242,242,242)">
+      <Box
+        sx={{ padding: { xs: "10px", md: "20px 48px" } }}
+        borderTop="1px solid rgb(242,242,242)"
+      >
         <Grid container>
           <Grid item xs={4}>
             <Box display="flex">
@@ -188,8 +280,8 @@ function ProductReviews(props) {
                 sx={{
                   "#user-avatar": {
                     position: "relative",
-                    width: "48px",
-                    height: "48px",
+                    width: { xs: "30px", md: "48px" },
+                    height: { xs: "30px", md: "48px" },
                     backgroundColor: "#f2f2f2",
                     borderRadius: "50%",
                   },
@@ -198,7 +290,7 @@ function ProductReviews(props) {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    fontSize: "14px",
+                    fontSize: { xs: "10px", md: "14px" },
                     fontWeight: "500",
                   },
                 }}
@@ -212,15 +304,21 @@ function ProductReviews(props) {
               <Box paddingLeft="12px">
                 <Typography
                   sx={{
-                    fontSize: "15px",
+                    fontSize: { xs: "13px", md: "15px" },
                     fontWeight: "700",
-                    lineHeight: "24px",
+                    lineHeight: { xs: "18px", md: "24px" },
                     color: "#242424",
                   }}
                 >
                   Nguyễn Thị Vân Anh
                 </Typography>
-                <Typography sx={{ fontSize: "13px", color: "#808089" }}>
+                <Typography
+                  sx={{
+                    paddingTop: { xs: "5px", md: "0px" },
+                    fontSize: { xs: "11px", md: "13px" },
+                    color: "#808089",
+                  }}
+                >
                   Đã tham gia 2 năm
                 </Typography>
               </Box>
@@ -229,10 +327,14 @@ function ProductReviews(props) {
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/post-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
                 Đã viết: 48 Đánh giá
               </Typography>
             </Box>
@@ -240,21 +342,29 @@ function ProductReviews(props) {
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/like-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
                 Đã nhận: 0 Lượt cảm ơn
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} sx={{ paddingLeft: { xs: "10px", md: "0px" } }}>
             <Box>
               <Box display="flex" alignItems="center">
-                <Rating value={5} readOnly />
+                <Rating
+                  value={5}
+                  sx={{ fontSize: { xs: "14px", md: "20px" } }}
+                  readOnly
+                />
                 <Typography
-                  fontSize="15px"
                   sx={{
+                    fontSize: { xs: "13px", md: "15px" },
                     color: "#242424",
                     marginLeft: "12px",
                     fontWeight: "700",
@@ -269,22 +379,41 @@ function ProductReviews(props) {
                 color="#00ab56"
                 marginBottom="16px"
               >
-                <CheckCircle fontSize="13" />
-                <Typography marginLeft="5px" fontSize="13px">
+                <CheckCircle sx={{ fontSize: { xs: "11px", md: "13px" } }} />
+                <Typography
+                  marginLeft="5px"
+                  sx={{ fontSize: { xs: "11px", md: "13px" } }}
+                >
                   Đã mua hàng
                 </Typography>
               </Box>
             </Box>
 
             <Box>
-              <Typography marginBottom="8px" fontSize="13px" color="#242424">
+              <Typography
+                marginBottom="8px"
+                sx={{ fontSize: { xs: "12px", md: "13px" }, color: "#242424" }}
+              >
                 Hài lòng. Dáng đẹp chuẩn form nhưng mình cao nên hơi cộc một
                 chút
               </Typography>
 
               <Box display="flex" alignItems="center" marginBottom="8px">
-                <CheckIcon fontSize="13px" sx={{ color: "#00ab56" }} />
-                <Typography marginLeft="7px" fontSize="13px" color="#808089">
+                <CheckIcon
+                  fontSize="13px"
+                  sx={{
+                    display: { xs: "none", md: "block" },
+
+                    color: "#00ab56",
+                  }}
+                />
+                <Typography
+                  sx={{
+                    marginLeft: { xs: "0", md: "7px" },
+                    fontSize: { xs: "12px", md: "13px" },
+                  }}
+                  color="#808089"
+                >
                   Đúng với mô tả/ hình ảnh, đường may đẹp, chắc chắn, Kiểu dáng
                   đẹp, Màu sắc đẹp
                 </Typography>
@@ -296,11 +425,17 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Màu: Kem
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Kích thước: XL
                 </Typography>
               </Box>
@@ -310,11 +445,17 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Đánh giá vào 3 tháng trước
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Đã dùng 1 giờ
                 </Typography>
               </Box>
@@ -326,50 +467,42 @@ function ProductReviews(props) {
                 size="large"
                 sx={{
                   display: "flex",
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
                   flexDirection: "row",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 <ThumbUpOffAltOutlined
-                  fontSize="14px"
-                  sx={{ marginRight: "8px" }}
+                  sx={{
+                    fontSize: { xs: "12px", md: "14px" },
+                    marginRight: { xs: "4px", md: "8px" },
+                  }}
                 />
                 Hữu ích
               </Button>
               <Button
                 size="large"
                 sx={{
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 Bình luận
               </Button>
-              <Button
-                size="large"
-                sx={{
-                  padding: "8px 16px",
-                  minWidth: "100px",
-                  fontSize: "14px",
-                  textTransform: "none",
-                }}
-                color="primary"
-              >
-                Chia sẻ
-              </Button>
             </Box>
           </Grid>
         </Grid>
       </Box>
-
-      <Box padding="20px 48px" borderTop="1px solid rgb(242,242,242)">
+      <Box
+        sx={{ padding: { xs: "10px", md: "20px 48px" } }}
+        borderTop="1px solid rgb(242,242,242)"
+      >
         <Grid container>
           <Grid item xs={4}>
             <Box display="flex">
@@ -377,8 +510,8 @@ function ProductReviews(props) {
                 sx={{
                   "#user-avatar": {
                     position: "relative",
-                    width: "48px",
-                    height: "48px",
+                    width: { xs: "30px", md: "48px" },
+                    height: { xs: "30px", md: "48px" },
                     backgroundColor: "#f2f2f2",
                     borderRadius: "50%",
                   },
@@ -387,30 +520,36 @@ function ProductReviews(props) {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    fontSize: "14px",
+                    fontSize: { xs: "10px", md: "14px" },
                     fontWeight: "500",
                   },
                 }}
               >
                 <Box id="user-avatar">
                   <Typography id="user-name" component="span">
-                    OL
+                    VA
                   </Typography>
                 </Box>
               </Box>
               <Box paddingLeft="12px">
                 <Typography
                   sx={{
-                    fontSize: "15px",
+                    fontSize: { xs: "13px", md: "15px" },
                     fontWeight: "700",
-                    lineHeight: "24px",
+                    lineHeight: { xs: "18px", md: "24px" },
                     color: "#242424",
                   }}
                 >
-                  Oanh Lương
+                  Nguyễn Thị Vân Anh
                 </Typography>
-                <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                  Đã tham gia 3 năm
+                <Typography
+                  sx={{
+                    paddingTop: { xs: "5px", md: "0px" },
+                    fontSize: { xs: "11px", md: "13px" },
+                    color: "#808089",
+                  }}
+                >
+                  Đã tham gia 2 năm
                 </Typography>
               </Box>
             </Box>
@@ -418,32 +557,44 @@ function ProductReviews(props) {
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/post-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                Đã viết: 7 Đánh giá
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
+                Đã viết: 48 Đánh giá
               </Typography>
             </Box>
             <Box
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/like-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                Đã nhận: 1 Lượt cảm ơn
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
+                Đã nhận: 0 Lượt cảm ơn
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} sx={{ paddingLeft: { xs: "10px", md: "0px" } }}>
             <Box>
               <Box display="flex" alignItems="center">
-                <Rating value={5} readOnly />
+                <Rating
+                  value={5}
+                  sx={{ fontSize: { xs: "14px", md: "20px" } }}
+                  readOnly
+                />
                 <Typography
-                  fontSize="15px"
                   sx={{
+                    fontSize: { xs: "13px", md: "15px" },
                     color: "#242424",
                     marginLeft: "12px",
                     fontWeight: "700",
@@ -458,32 +609,43 @@ function ProductReviews(props) {
                 color="#00ab56"
                 marginBottom="16px"
               >
-                <CheckCircle fontSize="13" />
-                <Typography marginLeft="5px" fontSize="13px">
+                <CheckCircle sx={{ fontSize: { xs: "11px", md: "13px" } }} />
+                <Typography
+                  marginLeft="5px"
+                  sx={{ fontSize: { xs: "11px", md: "13px" } }}
+                >
                   Đã mua hàng
                 </Typography>
               </Box>
             </Box>
 
             <Box>
-              <Typography marginBottom="8px" fontSize="13px" color="#242424">
-                Váy đẹp chuẩn size
-              </Typography>
-
-              <Box
-                sx={{
-                  maxWidth: "152px",
-                  marginBottom: "5px",
-                  img: { borderRadius: "5px" },
-                }}
+              <Typography
+                marginBottom="8px"
+                sx={{ fontSize: { xs: "12px", md: "13px" }, color: "#242424" }}
               >
-                <img width="100%" src="/feedback.jpeg" />
-              </Box>
+                Hài lòng. Dáng đẹp chuẩn form nhưng mình cao nên hơi cộc một
+                chút
+              </Typography>
 
               <Box display="flex" alignItems="center" marginBottom="8px">
-                <CheckIcon fontSize="13px" sx={{ color: "#00ab56" }} />
-                <Typography marginLeft="7px" fontSize="13px" color="#808089">
-                  Đường may đẹp, chắc chắn
+                <CheckIcon
+                  fontSize="13px"
+                  sx={{
+                    display: { xs: "none", md: "block" },
+
+                    color: "#00ab56",
+                  }}
+                />
+                <Typography
+                  sx={{
+                    marginLeft: { xs: "0", md: "7px" },
+                    fontSize: { xs: "12px", md: "13px" },
+                  }}
+                  color="#808089"
+                >
+                  Đúng với mô tả/ hình ảnh, đường may đẹp, chắc chắn, Kiểu dáng
+                  đẹp, Màu sắc đẹp
                 </Typography>
               </Box>
 
@@ -493,12 +655,18 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Màu: Kem
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
-                  Kích thước: M
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
+                  Kích thước: XL
                 </Typography>
               </Box>
               <Box
@@ -507,12 +675,18 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
-                  Đánh giá vào 1 tháng trước
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
+                  Đánh giá vào 3 tháng trước
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
-                  Đã dùng 28 phút
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
+                  Đã dùng 1 giờ
                 </Typography>
               </Box>
             </Box>
@@ -523,50 +697,42 @@ function ProductReviews(props) {
                 size="large"
                 sx={{
                   display: "flex",
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
                   flexDirection: "row",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 <ThumbUpOffAltOutlined
-                  fontSize="14px"
-                  sx={{ marginRight: "8px" }}
+                  sx={{
+                    fontSize: { xs: "12px", md: "14px" },
+                    marginRight: { xs: "4px", md: "8px" },
+                  }}
                 />
                 Hữu ích
               </Button>
               <Button
                 size="large"
                 sx={{
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 Bình luận
               </Button>
-              <Button
-                size="large"
-                sx={{
-                  padding: "8px 16px",
-                  minWidth: "100px",
-                  fontSize: "14px",
-                  textTransform: "none",
-                }}
-                color="primary"
-              >
-                Chia sẻ
-              </Button>
             </Box>
           </Grid>
         </Grid>
       </Box>
-
-      <Box padding="20px 48px" borderTop="1px solid rgb(242,242,242)">
+      <Box
+        sx={{ padding: { xs: "10px", md: "20px 48px" } }}
+        borderTop="1px solid rgb(242,242,242)"
+      >
         <Grid container>
           <Grid item xs={4}>
             <Box display="flex">
@@ -574,8 +740,8 @@ function ProductReviews(props) {
                 sx={{
                   "#user-avatar": {
                     position: "relative",
-                    width: "48px",
-                    height: "48px",
+                    width: { xs: "30px", md: "48px" },
+                    height: { xs: "30px", md: "48px" },
                     backgroundColor: "#f2f2f2",
                     borderRadius: "50%",
                   },
@@ -584,30 +750,36 @@ function ProductReviews(props) {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    fontSize: "14px",
+                    fontSize: { xs: "10px", md: "14px" },
                     fontWeight: "500",
                   },
                 }}
               >
                 <Box id="user-avatar">
                   <Typography id="user-name" component="span">
-                    NP
+                    VA
                   </Typography>
                 </Box>
               </Box>
               <Box paddingLeft="12px">
                 <Typography
                   sx={{
-                    fontSize: "15px",
+                    fontSize: { xs: "13px", md: "15px" },
                     fontWeight: "700",
-                    lineHeight: "24px",
+                    lineHeight: { xs: "18px", md: "24px" },
                     color: "#242424",
                   }}
                 >
-                  Ngoc Phuong
+                  Nguyễn Thị Vân Anh
                 </Typography>
-                <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                  Đã tham gia 4 năm
+                <Typography
+                  sx={{
+                    paddingTop: { xs: "5px", md: "0px" },
+                    fontSize: { xs: "11px", md: "13px" },
+                    color: "#808089",
+                  }}
+                >
+                  Đã tham gia 2 năm
                 </Typography>
               </Box>
             </Box>
@@ -615,32 +787,44 @@ function ProductReviews(props) {
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/post-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                Đã viết: 97 Đánh giá
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
+                Đã viết: 48 Đánh giá
               </Typography>
             </Box>
             <Box
               marginTop="12px"
               display="flex"
               alignItems="center"
-              sx={{ img: { width: "20px", marginRight: "8px" } }}
+              sx={{
+                img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
+              }}
             >
               <img src="/like-icon.png" />
-              <Typography sx={{ fontSize: "13px", color: "#808089" }}>
-                Đã nhận: 2 Lượt cảm ơn
+              <Typography
+                sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
+              >
+                Đã nhận: 0 Lượt cảm ơn
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} sx={{ paddingLeft: { xs: "10px", md: "0px" } }}>
             <Box>
               <Box display="flex" alignItems="center">
-                <Rating value={5} readOnly />
+                <Rating
+                  value={5}
+                  sx={{ fontSize: { xs: "14px", md: "20px" } }}
+                  readOnly
+                />
                 <Typography
-                  fontSize="15px"
                   sx={{
+                    fontSize: { xs: "13px", md: "15px" },
                     color: "#242424",
                     marginLeft: "12px",
                     fontWeight: "700",
@@ -655,17 +839,45 @@ function ProductReviews(props) {
                 color="#00ab56"
                 marginBottom="16px"
               >
-                <CheckCircle fontSize="13" />
-                <Typography marginLeft="5px" fontSize="13px">
+                <CheckCircle sx={{ fontSize: { xs: "11px", md: "13px" } }} />
+                <Typography
+                  marginLeft="5px"
+                  sx={{ fontSize: { xs: "11px", md: "13px" } }}
+                >
                   Đã mua hàng
                 </Typography>
               </Box>
             </Box>
 
             <Box>
-              <Typography marginBottom="8px" fontSize="13px" color="#242424">
-                ok, mặc vừa ý, đẹp
+              <Typography
+                marginBottom="8px"
+                sx={{ fontSize: { xs: "12px", md: "13px" }, color: "#242424" }}
+              >
+                Hài lòng. Dáng đẹp chuẩn form nhưng mình cao nên hơi cộc một
+                chút
               </Typography>
+
+              <Box display="flex" alignItems="center" marginBottom="8px">
+                <CheckIcon
+                  fontSize="13px"
+                  sx={{
+                    display: { xs: "none", md: "block" },
+
+                    color: "#00ab56",
+                  }}
+                />
+                <Typography
+                  sx={{
+                    marginLeft: { xs: "0", md: "7px" },
+                    fontSize: { xs: "12px", md: "13px" },
+                  }}
+                  color="#808089"
+                >
+                  Đúng với mô tả/ hình ảnh, đường may đẹp, chắc chắn, Kiểu dáng
+                  đẹp, Màu sắc đẹp
+                </Typography>
+              </Box>
 
               <Box
                 marginBottom="2px"
@@ -673,12 +885,18 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Màu: Kem
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
-                  Kích thước: M
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
+                  Kích thước: XL
                 </Typography>
               </Box>
               <Box
@@ -687,11 +905,17 @@ function ProductReviews(props) {
                   color: "#808089",
                 }}
               >
-                <Typography fontSize="13px" component="span">
-                  Đánh giá vào 2 tháng trước
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
+                  Đánh giá vào 3 tháng trước
                 </Typography>
                 <span> - </span>
-                <Typography fontSize="13px" component="span">
+                <Typography
+                  sx={{ fontSize: { xs: "12px", md: "13px" } }}
+                  component="span"
+                >
                   Đã dùng 1 giờ
                 </Typography>
               </Box>
@@ -703,43 +927,33 @@ function ProductReviews(props) {
                 size="large"
                 sx={{
                   display: "flex",
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
                   flexDirection: "row",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 <ThumbUpOffAltOutlined
-                  fontSize="14px"
-                  sx={{ marginRight: "8px" }}
+                  sx={{
+                    fontSize: { xs: "12px", md: "14px" },
+                    marginRight: { xs: "4px", md: "8px" },
+                  }}
                 />
                 Hữu ích
               </Button>
               <Button
                 size="large"
                 sx={{
-                  padding: "8px 16px",
+                  padding: { xs: "6px", md: "8px" },
                   minWidth: "100px",
-                  fontSize: "14px",
+                  fontSize: { xs: "12px", md: "14px" },
                   textTransform: "none",
                 }}
                 color="primary"
               >
                 Bình luận
-              </Button>
-              <Button
-                size="large"
-                sx={{
-                  padding: "8px 16px",
-                  minWidth: "100px",
-                  fontSize: "14px",
-                  textTransform: "none",
-                }}
-                color="primary"
-              >
-                Chia sẻ
               </Button>
             </Box>
           </Grid>

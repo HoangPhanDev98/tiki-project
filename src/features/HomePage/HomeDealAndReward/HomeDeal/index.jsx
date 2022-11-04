@@ -1,4 +1,4 @@
-import { Paper, Skeleton, Typography } from "@mui/material";
+import { Grid, Paper, Skeleton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import productApi from "../../../../api/productApi";
@@ -47,14 +47,26 @@ function HomeDeal(props) {
     navigate(`/san-pham/${productId}`);
   };
   return (
-    <Paper elevation={0}>
+    <Paper elevation={0} sx={{ marginBottom: "10px" }}>
       <Box
         sx={{ display: "flex", alignItems: "center", padding: "16px 16px 8px" }}
       >
         <Box>
-          <Box component="img" src="giasoc.svg"></Box>
-          <Box component="img" src="dealFlashIcon.svg" width="20px"></Box>
-          <Box component="img" src="homnay.svg"></Box>
+          <Box
+            component="img"
+            sx={{ width: { xs: "80px", md: "100%" } }}
+            src="giasoc.svg"
+          ></Box>
+          <Box
+            component="img"
+            src="dealFlashIcon.svg"
+            sx={{ width: { xs: "18px", md: "20px" } }}
+          ></Box>
+          <Box
+            component="img"
+            sx={{ width: { xs: "100px", md: "100%" } }}
+            src="homnay.svg"
+          ></Box>
         </Box>
         <Box
           sx={{
@@ -78,18 +90,18 @@ function HomeDeal(props) {
       {loading ? (
         <Skeleton variant="rectangular" width={740} height={320} />
       ) : (
-        <Box sx={{ display: "flex", marginTop: "10px" }}>
+        <Grid container sx={{ display: "flex", marginTop: "10px" }}>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
             breakpoints={{
               "@0.00": {
-                slidesPerView: 1,
-                spaceBetween: 10,
+                slidesPerView: 3,
+                spaceBetween: 0,
               },
               "@0.75": {
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: 3,
+                spaceBetween: 0,
               },
               "@1.00": {
                 slidesPerView: 3,
@@ -104,7 +116,9 @@ function HomeDeal(props) {
           >
             {productsSale.map((product) => (
               <SwiperSlide key={product.id}>
-                <Box
+                <Grid
+                  item
+                  xs={6}
                   sx={{ padding: "6px", cursor: "pointer" }}
                   key={product.id}
                   onClick={() => handleProductSaleClick(product.id)}
@@ -121,8 +135,9 @@ function HomeDeal(props) {
                   <Box
                     sx={{
                       display: "flex",
+                      flexDirection: { xs: "column", md: "row" },
                       color: "red",
-                      alignItems: "flex-end",
+                      alignItems: { xs: "center", md: "flex-end" },
                       marginTop: "20px",
                     }}
                   >
@@ -143,19 +158,19 @@ function HomeDeal(props) {
                     component="span"
                     sx={{
                       display: "block",
-                      fontSize: "11px",
+                      fontSize: { xs: "8px", md: "11px" },
                       textAlign: "center",
                       background: "rgb(255, 170, 175)",
-                      padding: "3px 0",
+                      padding: { xs: "3px 4px", md: "3px 0" },
                       borderRadius: "20px",
                       color: "white",
                       position: "relative",
                       marginY: "11px",
                       "&::before": {
                         content: '""',
-                        width: "17px",
-                        height: "17px",
-                        position: "absolute",
+                        width: { xs: "8px", md: "17px" },
+                        height: { xs: "8px", md: "17px" },
+                        position: { xs: "relative", md: "absolute" },
                         background: "red",
                         top: "0",
                         left: "0",
@@ -165,11 +180,11 @@ function HomeDeal(props) {
                   >
                     Vừa mở bán
                   </Box>
-                </Box>
+                </Grid>
               </SwiperSlide>
             ))}
           </Swiper>
-        </Box>
+        </Grid>
       )}
     </Paper>
   );

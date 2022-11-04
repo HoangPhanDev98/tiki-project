@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Container, Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import DOMPurify from "dompurify";
 import React from "react";
@@ -29,18 +29,33 @@ function DetailPage(props) {
   const safeDescription = DOMPurify.sanitize(product.description);
 
   return (
-    <Box sx={{ width: "1270px", margin: "0 auto" }}>
-      <Grid container sx={{ display: "flex", alignItems: "stretch" }}>
-        <Grid item xs={12} sm={6} md={5} lg={4}>
+    <Container
+      sx={{ padding: { xs: "0", md: "16px" }, paddingTop: { md: "0" } }}
+    >
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          alignItems: "stretch",
+          paddingTop: { sm: "23px", md: "0" },
+        }}
+      >
+        <Grid item xs={12} sm={12} md={5} lg={4}>
           <ProductThumbnail product={product} />
         </Grid>
-        <Grid item xs={12} sm={6} md={7} lg={8}>
+        <Grid item xs={12} sm={12} md={7} lg={8}>
           <ProductInfo onSubmit={handleAddToCartSubmit} product={product} />
         </Grid>
       </Grid>
 
       <Box marginTop="20px">
-        <Paper sx={{ padding: "20px" }}>
+        <Paper
+          sx={{
+            padding: "20px",
+            img: { width: "100%" },
+            wordBreak: "break-word",
+          }}
+        >
           <div dangerouslySetInnerHTML={{ __html: safeDescription }}></div>
         </Paper>
       </Box>
@@ -48,7 +63,7 @@ function DetailPage(props) {
       <Box marginTop="20px">
         <ProductReviews />
       </Box>
-    </Box>
+    </Container>
   );
 }
 

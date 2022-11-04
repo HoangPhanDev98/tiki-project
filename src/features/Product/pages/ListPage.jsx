@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
-import { Grid, Pagination, Paper, Typography } from "@mui/material";
+import { Container, Grid, Pagination, Paper, Typography } from "@mui/material";
 import ProductFilters from "../components/ProductFilters";
 import productApi from "../../../api/productApi";
 import ProductList from "../components/ProductList";
@@ -94,9 +94,9 @@ function ListPage(props) {
   };
 
   return (
-    <Box sx={{ width: "1270px", margin: "0 auto" }}>
+    <Container sx={{ paddingX: { xs: "0", md: "16px" } }}>
       <Grid container>
-        <Grid item sx={{ width: "200px" }}>
+        <Grid item sx={{ width: { xs: "100%", md: "200px" } }}>
           <Paper elevation={0} sx={{ padding: "0 16px 12px" }}>
             <ProductFilters
               filters={queryParams}
@@ -131,7 +131,7 @@ function ListPage(props) {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 }
 

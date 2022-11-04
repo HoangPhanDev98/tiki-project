@@ -41,7 +41,7 @@ function ProductSort({
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: { xs: "space-around", md: "space-between" },
         }}
       >
         <Tabs
@@ -68,7 +68,12 @@ function ProductSort({
           <Tab label="Giá cao xuống thấp" value="salePrice:DESC" />
         </Tabs>
 
-        <Box sx={{ padding: "0 15px 15px 0" }}>
+        <Box
+          sx={{
+            padding: "0 15px 15px 0",
+            display: { xs: "none", md: "block" },
+          }}
+        >
           <Pagination
             count={Math.ceil(pagination.total / pagination.limit)}
             page={pagination.page}

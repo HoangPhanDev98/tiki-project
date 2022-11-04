@@ -27,6 +27,7 @@ function FilterByService({ filters = {}, onChange = null }) {
           ".MuiTypography-root": {
             fontSize: "12px",
           },
+          display: { xs: "flex" },
         }}
       >
         {[

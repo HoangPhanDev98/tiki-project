@@ -31,13 +31,24 @@ function FilterByCategory({ onChange = null }) {
 
   return (
     <Box>
-      <Typography fontSize="14px" fontWeight="bold" sx={{ padding: "12px 0" }}>
+      <Typography
+        fontSize="14px"
+        fontWeight="bold"
+        sx={{
+          padding: { xs: "30px 0 15px", md: "12px 0" },
+        }}
+      >
         Danh Mục Sản Phẩm
       </Typography>
       {loading ? (
         <Skeleton variant="rectangular" width={200} height={230} />
       ) : (
-        <Box>
+        <Box
+          sx={{
+            display: { xs: "flex" },
+            justifyContent: { xs: "space-between" },
+          }}
+        >
           {categoryList.map((category) => (
             <Box
               key={category.id}

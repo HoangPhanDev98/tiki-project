@@ -1,33 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 
 HomeBrand.propTypes = {};
 
 function HomeBrand(props) {
   return (
-    <Box
-      sx={{
-        width: "1270px",
-        margin: "0 auto",
-        display: "flex",
-        marginY: "20px",
-        justifyContent: "space-between",
-        img: {
-          borderRadius: "10px",
-        },
-      }}
-    >
-      <Box component="a">
-        <img width="100%" height="168px" src="homebrand-img-1.png" />
-      </Box>
-      <Box component="a">
-        <img width="100%" height="168px" src="homebrand-img-2.png" />
-      </Box>
-      <Box component="a">
-        <img width="100%" height="168px" src="homebrand-img-3.png" />
-      </Box>
-    </Box>
+    <Container sx={{ display: { xs: "none", md: "block" } }}>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          marginY: "20px",
+          justifyContent: "space-between",
+          img: {
+            borderRadius: "10px",
+          },
+        }}
+      >
+        <Grid item xs={12} md={3} component="a">
+          <img width="100%" src="homebrand-img-1.png" />
+        </Grid>
+        <Grid item xs={12} md={6} component="a">
+          <img width="100%" height="168px" src="homebrand-img-2.png" />
+        </Grid>
+        <Grid item xs={12} md={3} component="a">
+          <img width="100%" height="168px" src="homebrand-img-3.png" />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

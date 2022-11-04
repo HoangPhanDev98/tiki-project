@@ -4,7 +4,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     showMiniCart: false,
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
   },
   reducers: {
     showMiniCart(state) {
@@ -21,11 +23,11 @@ const cartSlice = createSlice({
 
       if (index >= 0) {
         state.cartItems[index].quantity += newItem.quantity;
-        console.log("no ok");
       } else {
         state.cartItems.push(newItem);
-        console.log("ok");
       }
+
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
     setQuantity(state, action) {
