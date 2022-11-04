@@ -71,14 +71,14 @@ function ProductList({ categoryList }) {
   };
 
   return (
-    <Container sx={{ padding: { xs: "0", md: "16px" } }}>
+    <Container sx={{ padding: { xs: "0", md: "0 16px 16px 16px" } }}>
       <Paper elevation={0}>
         <Typography
           variant="h5"
           marginBottom={1}
           sx={{
-            padding: { xs: "10px", md: "16px" },
-            fontSize: { xs: "16px", md: "24px" },
+            padding: { xs: "10px", md: "10px 16px" },
+            fontSize: { xs: "16px", md: "20px" },
           }}
         >
           Gợi Ý Hôm Nay
@@ -126,22 +126,14 @@ function ProductList({ categoryList }) {
         {loading ? (
           <Grid container>
             {Array.from(new Array(36)).map((x, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={4}
-                md={3}
-                lg={2}
-                key={index}
-                marginBottom="15px"
-              >
+              <Grid item xs={12} sm={4} md={3} lg={2} key={index}>
                 <Skeleton width={195} height={195} variant="rectangular" />
               </Grid>
             ))}
           </Grid>
         ) : (
           <Box>
-            <Grid container>
+            <Grid container sx={{ background: "#f5f5fa" }}>
               {productList.map((product) => (
                 <Grid
                   item
@@ -151,11 +143,15 @@ function ProductList({ categoryList }) {
                   lg={2}
                   key={product.id}
                   marginBottom="15px"
+                  display="flex"
                 >
                   <Box
-                    padding={1}
                     sx={{
+                      marginX: "2px",
+                      padding: "8px 8px",
                       cursor: "pointer",
+                      backgroundColor: "white",
+
                       "&:hover": {
                         boxShadow:
                           "rgb(203 200 200) 1px 1px 0px 0px inset, rgb(203 200 200) -1px -1px 0px 0px inset",

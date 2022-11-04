@@ -11,21 +11,25 @@ function HomeBrand(props) {
         container
         sx={{
           display: "flex",
-          marginY: "20px",
+          marginBottom: "15px",
           justifyContent: "space-between",
           img: {
             borderRadius: "10px",
+            paddingRight: "5px",
           },
         }}
       >
-        <Grid item xs={12} md={3} component="a">
+        <Grid item xs={6} md={3} component="a">
           <img width="100%" src="homebrand-img-1.png" />
         </Grid>
-        <Grid item xs={12} md={6} component="a">
-          <img width="100%" height="168px" src="homebrand-img-2.png" />
+        <Grid item xs={6} md={3} component="a">
+          <img width="100%" src="homebrand-img-2.png" />
         </Grid>
-        <Grid item xs={12} md={3} component="a">
-          <img width="100%" height="168px" src="homebrand-img-3.png" />
+        <Grid item xs={6} md={3} component="a">
+          <img width="100%" src="homebrand-img-3.png" />
+        </Grid>
+        <Grid item xs={6} md={3} component="a">
+          <img width="100%" src="homebrand-img-4.png" />
         </Grid>
       </Grid>
     </Container>

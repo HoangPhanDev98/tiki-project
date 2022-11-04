@@ -54,17 +54,17 @@ function HomeDeal(props) {
         <Box>
           <Box
             component="img"
-            sx={{ width: { xs: "80px", md: "100%" } }}
+            sx={{ width: { xs: "80px", md: "84px", lg: "89px" } }}
             src="giasoc.svg"
           ></Box>
           <Box
             component="img"
             src="dealFlashIcon.svg"
-            sx={{ width: { xs: "18px", md: "20px" } }}
+            sx={{ width: { xs: "18px", md: "19px", lg: "20px" } }}
           ></Box>
           <Box
             component="img"
-            sx={{ width: { xs: "100px", md: "100%" } }}
+            sx={{ width: { xs: "100px", md: "106px", lg: "113px" } }}
             src="homnay.svg"
           ></Box>
         </Box>
@@ -90,10 +90,16 @@ function HomeDeal(props) {
       {loading ? (
         <Skeleton variant="rectangular" width={740} height={320} />
       ) : (
-        <Grid container sx={{ display: "flex", marginTop: "10px" }}>
+        <Grid
+          container
+          sx={{
+            display: "flex",
+            marginTop: "10px",
+          }}
+        >
           <Swiper
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={0}
             breakpoints={{
               "@0.00": {
                 slidesPerView: 3,
@@ -105,11 +111,11 @@ function HomeDeal(props) {
               },
               "@1.00": {
                 slidesPerView: 3,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
               "@1.50": {
                 slidesPerView: 4,
-                spaceBetween: 50,
+                spaceBetween: 0,
               },
             }}
             className="mySwiper"
@@ -119,9 +125,11 @@ function HomeDeal(props) {
                 <Grid
                   item
                   xs={6}
-                  sx={{ padding: "6px", cursor: "pointer" }}
                   key={product.id}
                   onClick={() => handleProductSaleClick(product.id)}
+                  sx={{
+                    cursor: "pointer",
+                  }}
                 >
                   <Box
                     component="img"
@@ -171,7 +179,7 @@ function HomeDeal(props) {
                         width: { xs: "8px", md: "17px" },
                         height: { xs: "8px", md: "17px" },
                         position: { xs: "relative", md: "absolute" },
-                        background: "red",
+                        background: "rgb(255, 66, 78)",
                         top: "0",
                         left: "0",
                         borderRadius: "50%",

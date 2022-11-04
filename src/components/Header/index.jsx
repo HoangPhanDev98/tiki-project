@@ -69,6 +69,10 @@ function Header(props) {
     navigate("/gio-hang");
   };
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   return (
     <Box
       sx={{
@@ -109,6 +113,7 @@ function Header(props) {
               }}
             >
               <Grid
+                item
                 xs={6}
                 sx={{
                   display: { xs: "flex", md: "none" },
@@ -146,9 +151,12 @@ function Header(props) {
                       display: "block",
                       "&>img": { width: "100%", height: "100%" },
                     }}
-                    href="/"
                   >
-                    <img src="logo-tiki.png" alt="Tiki" />
+                    <img
+                      src="logo-tiki.png"
+                      alt="Tiki"
+                      onClick={handleLogoClick}
+                    />
                   </Link>
                 </Box>
               </Grid>
@@ -183,12 +191,12 @@ function Header(props) {
                         height: "40px",
                         fontSize: {
                           md: "12px",
-                          lg: "16px",
+                          lg: "13px",
                         },
                         "&::placeholder": {
                           fontSize: {
                             md: "12px",
-                            lg: "16px",
+                            lg: "13px",
                           },
                         },
                       },
@@ -408,7 +416,7 @@ function Header(props) {
                 sx={{
                   display: "flex",
                   alignItems: "flex-start",
-                  paddingLeft: { md: "0px", xl: "12px" },
+                  paddingLeft: { md: "0px", lg: "12px" },
                   a: {
                     display: "block",
                     fontSize: { md: "10px", lg: "11px" },
