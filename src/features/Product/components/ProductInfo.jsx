@@ -130,7 +130,10 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                     color: "rgb(64, 45, 161)",
                   }}
                 >
-                  <img height="16px" src="../../../astra-icon.png" />
+                  <img
+                    height="16px"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/b1a9d81e-989e-4543-4218-acb2cf859d00/public"
+                  />
 
                   <Typography
                     display="inline-block"
@@ -141,7 +144,11 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                   </Typography>
                 </Box>
                 <Box marginTop="1px" sx={{ cursor: "pointer" }}>
-                  <img width="75px" height="100%" src="../../../astra+.png" />
+                  <img
+                    width="75px"
+                    height="100%"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/a1e83e3f-49ea-4d2c-190d-297b56116d00/public"
+                  />
                 </Box>
               </Box>
             </Box>
@@ -221,7 +228,11 @@ function ProductInfo({ product = {}, onSubmit = null }) {
               boxShadow="rgb(242 242 242) 1px 1px 0px 0px inset, rgb(242 242 242) -1px -1px 0px 0px inset"
             >
               <Box display="flex" alignItems="center" padding="8px 12px">
-                <Box component="img" src="/hpd-icon.webp" width="44px" />
+                <Box
+                  component="img"
+                  src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/1e66ddbc-9a75-4f48-8db9-8f4cd8f68100/public"
+                  width="44px"
+                />
                 <Typography
                   fontWeight="bold"
                   fontSize="15px"
@@ -285,13 +296,19 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                 }}
               >
                 <Button variant="outlined" size="large" color="primary">
-                  <Box component="img" src="/shop-icon.png" />
+                  <Box
+                    component="img"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/d6430ebd-399f-4c36-1268-701b808ba600/public"
+                  />
                   <Box component="span" paddingLeft="5px">
                     Xem Shop
                   </Box>
                 </Button>
                 <Button variant="outlined" size="large" color="primary">
-                  <Box component="img" src="/increase-icon.png" />
+                  <Box
+                    component="img"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/1db55a8b-d6ad-4a28-4c41-9274a0d0d600/public"
+                  />
                   <Box component="span" paddingLeft="5px">
                     Theo dõi
                   </Box>
@@ -328,7 +345,10 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                 }}
               >
                 <Grid item xs={4}>
-                  <Box component="img" src="/hoan-tien-icon.png" />
+                  <Box
+                    component="img"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/cc5c8cd3-a5d7-4146-76e5-b07a4d89ad00/public"
+                  />
                   <Typography>
                     Hoàn tiền
                     <Typography fontSize="inherit" fontWeight="700">
@@ -338,11 +358,17 @@ function ProductInfo({ product = {}, onSubmit = null }) {
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                  <Box component="img" src="/hoan-tien-icon.png" />
+                  <Box
+                    component="img"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/cc5c8cd3-a5d7-4146-76e5-b07a4d89ad00/public"
+                  />
                   <Typography>Mở hộp kiểm tra nhận hàng</Typography>
                 </Grid>
                 <Grid item xs={4}>
-                  <Box component="img" src="/hoan-tien-icon.png" />
+                  <Box
+                    component="img"
+                    src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/cc5c8cd3-a5d7-4146-76e5-b07a4d89ad00/public"
+                  />
                   <Typography>
                     Đổi trả trong
                     <Typography fontSize="inherit" fontWeight="700">

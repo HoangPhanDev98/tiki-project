@@ -156,7 +156,7 @@ function Header(props) {
                     }}
                   >
                     <img
-                      src="logo-tiki.png"
+                      src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/6be3f2bd-a49f-4b22-f07a-d0b23e69f500/public"
                       alt="Tiki"
                       onClick={handleLogoClick}
                     />
@@ -250,7 +250,10 @@ function Header(props) {
                   },
                 }}
               >
-                <img src="user-icon.png" alt="User Icon" />
+                <img
+                  src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/65bf894d-41ea-48ca-c72b-907116e38a00/public"
+                  alt="User Icon"
+                />
                 {!isLoggedIn && (
                   <Box
                     component="span"
@@ -300,7 +303,7 @@ function Header(props) {
                       </Box>
                       <Box
                         component="img"
-                        src="arrow-icon.png"
+                        src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/81301a91-7e8f-42c3-f32d-53ea75b85300/public"
                         sx={{
                           width: { xs: "10px", lg: "16px" },
                           height: { xs: "10px", lg: "16px" },
@@ -342,7 +345,7 @@ function Header(props) {
                     >
                       <Box
                         component="img"
-                        src="cart-icon.png"
+                        src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/c45dc758-9ab2-4b55-cbb9-8b0fb01ac300/public"
                         sx={{
                           width: "32px",
                           height: "32px",
@@ -405,7 +408,7 @@ function Header(props) {
               <Grid md={3} lg={3} item component="a">
                 <Box
                   component="img"
-                  src="astra-rewards.png"
+                  src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/0bfd6e00-4c5b-4436-4270-e32ded890e00/public"
                   alt="astra-rewards"
                   height="18px"
                   width="129px"

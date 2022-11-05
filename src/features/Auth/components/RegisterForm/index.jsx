@@ -122,7 +122,11 @@ function RegisterForm(props) {
             "linear-gradient(136deg, rgb(240, 248, 255) -1%, rgb(219, 238, 255) 85%)",
         }}
       >
-        <Box component="img" src="register-img.png" width="209px"></Box>
+        <Box
+          component="img"
+          src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/66dd9188-a7fa-45cb-dfd6-c33775dfd700/public"
+          width="209px"
+        ></Box>
         <Box sx={{ marginTop: "15px", textAlign: "center", color: "#0B74E5" }}>
           <Typography sx={{ fontSize: "17px" }}>Mua sắm tại Tiki</Typography>
           <Typography sx={{ fontSize: "13px" }}>

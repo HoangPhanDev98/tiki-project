@@ -1,6 +1,7 @@
 import { Container, Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import DOMPurify from "dompurify";
+import { useSnackbar } from "notistack";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -13,6 +14,7 @@ import ProductThumbnail from "../components/ProductThumbnail";
 DetailPage.propTypes = {};
 
 function DetailPage(props) {
+  const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
   const { productId } = useParams();
   const { product } = useProductDetail(productId);
@@ -24,6 +26,9 @@ function DetailPage(props) {
       quantity,
     });
     dispatch(action);
+    enqueueSnackbar(`Thêm giỏ hàng thành công ${quantity} ${product.name}`, {
+      variant: "success",
+    });
   };
 
   const safeDescription = DOMPurify.sanitize(product.description);

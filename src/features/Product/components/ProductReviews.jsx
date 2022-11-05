@@ -331,7 +331,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/post-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/8a1a4ba5-4794-49d4-b7c5-a6531d106500/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >
@@ -346,7 +346,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/like-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/b9d93c22-c9ac-4baa-d6fd-8686dabaaa00/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >
@@ -561,7 +561,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/post-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/8a1a4ba5-4794-49d4-b7c5-a6531d106500/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >
@@ -576,7 +576,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/like-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/b9d93c22-c9ac-4baa-d6fd-8686dabaaa00/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >
@@ -791,7 +791,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/post-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/8a1a4ba5-4794-49d4-b7c5-a6531d106500/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >
@@ -806,7 +806,7 @@ function ProductReviews(props) {
                 img: { width: { xs: "16px", md: "20px" }, marginRight: "8px" },
               }}
             >
-              <img src="/like-icon.png" />
+              <img src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/b9d93c22-c9ac-4baa-d6fd-8686dabaaa00/public" />
               <Typography
                 sx={{ fontSize: { xs: "11px", md: "13px" }, color: "#808089" }}
               >

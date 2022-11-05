@@ -18,27 +18,33 @@ function HomeBannerTop(props) {
   const imgList = [
     {
       id: 1,
-      imgUrl: "/banner-1.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/7a8c224b-8932-4ec3-e6f7-52df4cb1ec00/public",
     },
     {
       id: 2,
-      imgUrl: "/banner-2.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/65065b09-4746-4e8d-b19b-29dfa415e500/public",
     },
     {
       id: 3,
-      imgUrl: "/banner-3.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/593478e8-460e-4f87-57cc-508914c59800/public",
     },
     {
       id: 4,
-      imgUrl: "/banner-4.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/ca3715f6-7970-448a-e81b-12854d25a600/public",
     },
     {
       id: 5,
-      imgUrl: "/banner-5.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/cd389c5c-ce65-4502-b7c6-c60b0e657200/public",
     },
     {
       id: 6,
-      imgUrl: "/banner-6.png",
+      imgUrl:
+        "https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/a0c5ffb0-86aa-4be9-f8cd-6a3622a36900/public",
     },
   ];
 
@@ -78,7 +84,7 @@ function HomeBannerTop(props) {
               component="img"
               width="100%"
               sx={{ borderRadius: "10px" }}
-              src="banner-top-sale50.png"
+              src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/61009224-d642-447d-1ab9-ba6a3939e200/public"
             />
           </Box>
         </Grid>

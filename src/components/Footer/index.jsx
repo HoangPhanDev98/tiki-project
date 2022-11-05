@@ -122,12 +122,12 @@ function Footer(props) {
             </Typography>
             <Box
               component="img"
-              src="../../../bo-cong-thuong-2.png"
+              src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/7098b47e-7151-4e3c-86ec-85b581914300/public"
               height="32px"
             ></Box>
             <Box
               component="img"
-              src="../../../bo-cong-thuong.svg"
+              src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/a6649511-0935-492b-e4db-1f493a573800/public"
               height="32px"
             ></Box>
           </Box>
@@ -136,11 +136,19 @@ function Footer(props) {
             <Typography className="footer__header">
               Phương thức và thanh toán
             </Typography>
-            <Box component="img" src="../../../payment.png" width="100%"></Box>
+            <Box
+              component="img"
+              src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/53a565c2-436f-489f-68c9-f098196a3000/public"
+              width="100%"
+            ></Box>
             <Typography className="footer__header" marginTop="12px">
               Dịch vụ giao hàng
             </Typography>
-            <Box component="img" src="../../../tiki-now.png" width="68px"></Box>
+            <Box
+              component="img"
+              src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/b5e34e38-09ae-4edf-569a-edc0bff0c000/public"
+              width="68px"
+            ></Box>
           </Box>
 
           <Box>
@@ -228,7 +236,11 @@ function Footer(props) {
               Tải ứng dụng trên điện thoại
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <Box component="img" src="../../../qrcode.png" width="80px"></Box>
+              <Box
+                component="img"
+                src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/af04ff09-d0a7-499c-3024-d43b14272200/public"
+                width="80px"
+              ></Box>
               <Box
                 sx={{
                   display: "flex",
@@ -238,12 +250,12 @@ function Footer(props) {
               >
                 <Box
                   component="img"
-                  src="../../../appstore.png"
+                  src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/4e737fc0-14f9-4078-cc74-ece9768f8600/public"
                   width="122px"
                 ></Box>
                 <Box
                   component="img"
-                  src="../../../playstore.png"
+                  src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/da7eb374-784c-4ab5-d76c-6fd318293700/public"
                   width="122px"
                 ></Box>
               </Box>

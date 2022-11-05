@@ -55,17 +55,17 @@ function HomeDeal(props) {
           <Box
             component="img"
             sx={{ width: { xs: "80px", md: "84px", lg: "89px" } }}
-            src="giasoc.svg"
+            src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/d504d9fb-fcd9-4ca8-abaa-a6bf6ef58800/public"
           ></Box>
           <Box
             component="img"
-            src="dealFlashIcon.svg"
+            src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/164a9bcf-5b34-40fa-cf5b-afcc8841bb00/public"
             sx={{ width: { xs: "18px", md: "19px", lg: "20px" } }}
           ></Box>
           <Box
             component="img"
             sx={{ width: { xs: "100px", md: "106px", lg: "113px" } }}
-            src="homnay.svg"
+            src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/6967750f-74e3-4dd5-0719-955e44ba9f00/public"
           ></Box>
         </Box>
         <Box
