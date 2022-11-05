@@ -26,9 +26,9 @@ function ProductList({ categoryList }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [pagination, setPagination] = useState({
-    page: 1,
-    limit: 36,
-    total: 10,
+    _page: 1,
+    _limit: 36,
+    _totalRows: 10,
   });
 
   const queryParams = useMemo(() => {
@@ -44,9 +44,9 @@ function ProductList({ categoryList }) {
   useEffect(() => {
     (async () => {
       try {
-        const { data, pagination } = await productApi.getAll(queryParams);
-        setProductList(data);
-        setPagination(pagination);
+        const { data } = await productApi.getAll(queryParams);
+        setProductList(data.data);
+        setPagination(data.pagination);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
       }
@@ -237,7 +237,7 @@ function ProductList({ categoryList }) {
               justifyContent="center"
             >
               <Pagination
-                count={Math.ceil(pagination.total / pagination.limit)}
+                count={Math.ceil(pagination._totalRows / pagination._limit)}
                 page={pagination.page}
                 color="primary"
                 onChange={handlePageChange}

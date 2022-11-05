@@ -75,7 +75,7 @@ function ProductSort({
           }}
         >
           <Pagination
-            count={Math.ceil(pagination.total / pagination.limit)}
+            count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination.page}
             color="primary"
             onChange={handlePageChange}

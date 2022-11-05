@@ -17,16 +17,16 @@ const productApi = {
       params: newParams,
     });
 
-    const count = await axiosClient.get("/products/count", {
-      params: newParams,
-    });
+    // const count = await axiosClient.get("/products/count", {
+    //   params: newParams,
+    // });
 
     return {
       data: productList,
       pagination: {
         page: params._page,
         limit: params._limit,
-        total: count,
+        total: params._totalRow,
       },
     };
   },

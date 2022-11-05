@@ -19,9 +19,9 @@ function ListPage(props) {
 
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
-    page: 1,
-    limit: 20,
-    total: 5,
+    _page: 1,
+    _limit: 20,
+    _totalRows: 5,
   });
 
   const queryParams = useMemo(() => {
@@ -40,9 +40,9 @@ function ListPage(props) {
   useEffect(() => {
     (async () => {
       try {
-        const { data, pagination } = await productApi.getAll(queryParams);
-        setProductList(data);
-        setPagination(pagination);
+        const { data } = await productApi.getAll(queryParams);
+        setProductList(data.data);
+        setPagination(data.pagination);
       } catch (error) {
         console.log("Failed to get product list: ", error);
       }
@@ -123,7 +123,7 @@ function ListPage(props) {
             justifyContent="center"
           >
             <Pagination
-              count={Math.ceil(pagination.total / pagination.limit)}
+              count={Math.ceil(pagination._totalRows / pagination._limit)}
               page={pagination.page}
               color="primary"
               onChange={handlePageChange}

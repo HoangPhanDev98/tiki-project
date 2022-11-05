@@ -19,7 +19,6 @@ function ProductFilters({ filters = {}, onChange = null, loading = true }) {
       ...filters,
       "category.id": newCategoryId,
     };
-    console.log("okkk");
 
     onChange(newFilters);
   };

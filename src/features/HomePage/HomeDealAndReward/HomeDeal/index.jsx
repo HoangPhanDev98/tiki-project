@@ -35,7 +35,7 @@ function HomeDeal(props) {
           _limit: 5,
           isPromotion: true,
         });
-        setProductsSale(data);
+        setProductsSale(data.data);
       } catch (error) {
         console.log("Failed to get product: ", error);
       }

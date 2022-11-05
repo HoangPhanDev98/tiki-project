@@ -45,7 +45,7 @@ function FilterByCategory({ onChange = null }) {
       ) : (
         <Box
           sx={{
-            display: { xs: "flex" },
+            display: { xs: "flex", sm: "block" },
             justifyContent: { xs: "space-between" },
           }}
         >
