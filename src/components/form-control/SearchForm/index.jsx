@@ -23,10 +23,7 @@ function SearchForm(props) {
   });
 
   const handleSubmit = async (values) => {
-    const { onSubmit } = props;
-    if (onSubmit) {
-      await onSubmit(values);
-    }
+    console.log(values);
   };
 
   return (
@@ -36,7 +33,7 @@ function SearchForm(props) {
         placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn..."
         form={form}
       />
-      <Button variant="contained">
+      <Button variant="contained" type="submit">
         <Box
           component="img"
           src="https://imagedelivery.net/0zXr_E37UKCFiaGSBm0NrA/0fc17c54-56e3-49f2-4238-27ef672cb000/public"

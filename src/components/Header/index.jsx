@@ -149,6 +149,7 @@ function Header(props) {
                 >
                   <Link
                     sx={{
+                      cursor: "pointer",
                       width: { xs: "50px", md: "60px" },
                       height: { xs: "33.3px", md: "40px" },
                       display: "block",
