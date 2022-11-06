@@ -219,7 +219,7 @@ function ProductInfo({ product = {}, onSubmit = null }) {
           <Grid
             item
             xs={12}
-            sm="6"
+            sm={6}
             lg={4}
             sx={{ marginTop: { xs: "20px", sm: "0", md: "0" } }}
           >

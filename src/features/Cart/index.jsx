@@ -9,6 +9,17 @@ import { formatPrice } from "../../utils";
 import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from "../../constants/index";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import {
+  decreaseCart,
+  increaseCart,
+  removeFromCart,
+  checkout,
+} from "./cartSlice";
+import QuantityField from "../../components/form-control/QuantityField";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import orderApi from "../../api/orderApi";
 
 CartFeature.propTypes = {};
 
@@ -31,6 +42,46 @@ function CartFeature(props) {
 
   const handleContinueClick = () => {
     navigate("/");
+  };
+
+  const schema = yup.object().shape({
+    quantity: yup
+      .number()
+      .required("Please enter quantity")
+      .min(1, "Minimum value is 1")
+      .typeError("Please enter a number"),
+  });
+
+  const form = useForm({
+    defaultValues: {
+      quantity: cartItemTotal,
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const handleDecrease = (product) => {
+    const action = decreaseCart(product);
+    dispatch(action);
+  };
+
+  const handleIncrease = (product) => {
+    const action = increaseCart(product);
+    dispatch(action);
+  };
+
+  const handleCheckOut = () => {
+    const data = {
+      customer_name: "Hoang Phan 1",
+      customer_address: "Quan 9 1",
+      orderDetail: {
+        totalQuantity: cartItemTotal,
+        totalPrice: cartTotal,
+        productDetail,
+      },
+    };
+    const action = checkout(data);
+    dispatch(action);
+    navigate("/dat-hang-thanh-cong");
   };
 
   return (
@@ -111,6 +162,7 @@ function CartFeature(props) {
               </Typography>
             </Box>
             <Button
+              onClick={handleCheckOut}
               variant="contained"
               size="large"
               sx={{
@@ -130,14 +182,17 @@ function CartFeature(props) {
                 marginBottom: { xs: "2px", sm: "10px" },
               }}
             >
-              <Grid container sx={{ alignItems: "center" }}>
-                <Grid item xs={3} lg={5} fontSize="14px">
+              <Grid
+                container
+                sx={{ alignItems: "center", textAlign: "center" }}
+              >
+                <Grid item xs={3} lg={4} fontSize="14px">
                   Sản phẩm
                 </Grid>
                 <Grid item xs={3} lg={2} fontSize="13px">
                   Đơn giá
                 </Grid>
-                <Grid item xs={2} lg={2} fontSize="13px">
+                <Grid item xs={2} lg={3} fontSize="13px">
                   Số lượng
                 </Grid>
                 <Grid item xs={3} lg={2} fontSize="13px">
@@ -159,10 +214,8 @@ function CartFeature(props) {
                 elevation={0}
                 sx={{ padding: "9px 16px" }}
               >
-                {console.log(product.product.thumbnail)}
-
                 <Grid container sx={{ alignItems: "center" }}>
-                  <Grid item xs={3} lg={5} display="flex" alignItems="center">
+                  <Grid item xs={3} lg={4} display="flex" alignItems="center">
                     <img
                       width="77.63px"
                       height="80px"
@@ -190,8 +243,22 @@ function CartFeature(props) {
                   >
                     {formatPrice(product.product.salePrice)}
                   </Grid>
-                  <Grid item xs={2} fontSize="13px">
-                    {product.quantity}
+                  <Grid item xs={3} fontSize="13px">
+                    <Box
+                      display="flex"
+                      sx={{
+                        button: { padding: 0 },
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Button onClick={() => handleDecrease(product.product)}>
+                        -
+                      </Button>{" "}
+                      <Typography>{product.quantity}</Typography>
+                      <Button onClick={() => handleIncrease(product.product)}>
+                        +
+                      </Button>
+                    </Box>
                   </Grid>
                   <Grid
                     item
@@ -203,8 +270,14 @@ function CartFeature(props) {
                   >
                     {formatPrice(product.product.salePrice * product.quantity)}
                   </Grid>
-                  <Grid item xs={1} fontSize="13px" textAlign="right">
-                    <DeleteOutline />
+                  <Grid
+                    item
+                    xs={1}
+                    fontSize="13px"
+                    textAlign="right"
+                    sx={{ svg: { cursor: "pointer" } }}
+                  >
+                    <DeleteOutline onClick={() => handleRemoveItem(product)} />
                   </Grid>
                 </Grid>
               </Paper>
@@ -311,6 +384,7 @@ function CartFeature(props) {
               </Box>
 
               <Button
+                onClick={handleCheckOut}
                 fullWidth
                 variant="contained"
                 size="large"

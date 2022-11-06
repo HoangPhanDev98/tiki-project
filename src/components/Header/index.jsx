@@ -1,4 +1,4 @@
-import { MenuOutlined } from "@mui/icons-material";
+import { MenuOutlined, PersonOutlineOutlined } from "@mui/icons-material";
 import {
   Button,
   Container,
@@ -36,22 +36,13 @@ function Header(props) {
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id;
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const cartItemsCount = useSelector(cartItemsCountSelector);
   const handleOpenRegister = () => {
     setOpen(true);
   };
 
-  const handleOpenNavMenu = (e) => {
-    setAnchorElNav(e.currentTarget);
-  };
-
   const handleOpenUserMenu = (e) => {
     setAnchorElUser(e.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -122,12 +113,10 @@ function Header(props) {
                   display: { xs: "flex", md: "none" },
                   color: "white",
                   alignContent: "center",
+                  img: { width: "90px" },
                 }}
               >
-                <MenuOutlined
-                  sx={{ cursor: "pointer" }}
-                  onClick={handleOpenNavMenu}
-                />
+                <img src="https://salt.tikicdn.com/ts/brickv2og/db/eb/7c/a926af0ba3dc2802148bfc39563180c2.png" />
               </Grid>
               <Grid
                 item
@@ -472,28 +461,6 @@ function Header(props) {
           </Grid>
         </Box>
       </Container>
-
-      <Menu
-        id="menu-appbar"
-        anchorEl={anchorElNav}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        open={Boolean(anchorElNav)}
-        onClose={handleCloseNavMenu}
-        sx={{
-          display: { xs: "block", md: "none", zIndex: "999999" },
-        }}
-      >
-        <MenuItem>Tìm kiếm</MenuItem>
-        <MenuItem>Đăng Nhập / Đăng Ký</MenuItem>
-      </Menu>
 
       <Menu
         keepMounted

@@ -14,10 +14,12 @@ QuantityField.propTypes = {
 
   lable: PropTypes.string,
   disabled: PropTypes.bool,
+
+  onChange: PropTypes.func,
 };
 
 function QuantityField(props) {
-  const { form, name, label } = props;
+  const { form, name, label, onChange } = props;
   const { control, setValue } = form;
 
   return (
@@ -66,7 +68,6 @@ function QuantityField(props) {
               />
               <IconButton
                 onClick={() => {
-                  console.log(Number.parseInt(value));
                   setValue(
                     name,
                     Number.parseInt(value) ? Number.parseInt(value) + 1 : 1
